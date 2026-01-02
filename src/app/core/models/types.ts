@@ -31,6 +31,7 @@ export interface MatchResult {
   readonly missing: number;
   readonly ownedCards: readonly CardMatchInfo[];
   readonly missingCards: readonly CardMatchInfo[];
+  readonly hasCommander: boolean;
 }
 
 /** Commander with match results for display */
@@ -47,6 +48,7 @@ export interface Filters {
   readonly colors: readonly ColorIdentity[];
   readonly minPercent: number;
   readonly sortBy: SortOption;
+  readonly requireCommander: boolean;
 }
 
 /** Response shape from Archidekt API */

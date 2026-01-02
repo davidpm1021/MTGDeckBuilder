@@ -14,6 +14,10 @@
       "numDecks": 42207,
       "cards": [
         {
+          "name": "The Ur-Dragon",
+          "quantity": 1
+        },
+        {
           "name": "Ancient Copper Dragon",
           "quantity": 1
         },
@@ -406,6 +410,10 @@
       "numDecks": 40893,
       "cards": [
         {
+          "name": "Edgar Markov",
+          "quantity": 1
+        },
+        {
           "name": "Anguished Unmaking",
           "quantity": 1
         },
@@ -766,6 +774,10 @@
       ],
       "numDecks": 38895,
       "cards": [
+        {
+          "name": "Atraxa, Praetors' Voice",
+          "quantity": 1
+        },
         {
           "name": "Ajani, Sleeper Agent",
           "quantity": 1
@@ -1141,6 +1153,10 @@
       "numDecks": 34730,
       "cards": [
         {
+          "name": "Krenko, Mob Boss",
+          "quantity": 1
+        },
+        {
           "name": "Abrade",
           "quantity": 1
         },
@@ -1436,6 +1452,10 @@
       ],
       "numDecks": 32905,
       "cards": [
+        {
+          "name": "Kaalia of the Vast",
+          "quantity": 1
+        },
         {
           "name": "Ancient Copper Dragon",
           "quantity": 1
@@ -1793,6 +1813,10 @@
       "numDecks": 30420,
       "cards": [
         {
+          "name": "Sauron, the Dark Lord",
+          "quantity": 1
+        },
+        {
           "name": "Anger",
           "quantity": 1
         },
@@ -2128,6 +2152,10 @@
       ],
       "numDecks": 30231,
       "cards": [
+        {
+          "name": "Pantlaza, Sun-Favored",
+          "quantity": 1
+        },
         {
           "name": "Akroma's Will",
           "quantity": 1
@@ -2484,6 +2512,10 @@
       "numDecks": 29646,
       "cards": [
         {
+          "name": "Yuriko, the Tiger's Shadow",
+          "quantity": 1
+        },
+        {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
         },
@@ -2831,6 +2863,10 @@
       "numDecks": 29224,
       "cards": [
         {
+          "name": "Lathril, Blade of the Elves",
+          "quantity": 1
+        },
+        {
           "name": "Abomination of Llanowar",
           "quantity": 1
         },
@@ -3166,6 +3202,10 @@
       ],
       "numDecks": 28906,
       "cards": [
+        {
+          "name": "Y'shtola, Night's Blessed",
+          "quantity": 1
+        },
         {
           "name": "Alisaie Leveilleur",
           "quantity": 1
@@ -3540,6 +3580,10 @@
       ],
       "numDecks": 27824,
       "cards": [
+        {
+          "name": "Kenrith, the Returned King",
+          "quantity": 1
+        },
         {
           "name": "Agatha of the Vile Cauldron",
           "quantity": 1
@@ -3927,6 +3971,10 @@
       "numDecks": 27471,
       "cards": [
         {
+          "name": "Giada, Font of Hope",
+          "quantity": 1
+        },
+        {
           "name": "Akroma's Will",
           "quantity": 1
         },
@@ -4230,6 +4278,10 @@
       ],
       "numDecks": 27307,
       "cards": [
+        {
+          "name": "The Wise Mothman",
+          "quantity": 1
+        },
         {
           "name": "Agent Frank Horrigan",
           "quantity": 1
@@ -4596,6 +4648,10 @@
       ],
       "numDecks": 27042,
       "cards": [
+        {
+          "name": "Jodah, the Unifier",
+          "quantity": 1
+        },
         {
           "name": "Annie Joins Up",
           "quantity": 1
@@ -4981,6 +5037,10 @@
       "numDecks": 26264,
       "cards": [
         {
+          "name": "Nekusar, the Mindrazer",
+          "quantity": 1
+        },
+        {
           "name": "Arcane Denial",
           "quantity": 1
         },
@@ -5345,6 +5405,10 @@
       "numDecks": 25991,
       "cards": [
         {
+          "name": "Miirym, Sentinel Wyrm",
+          "quantity": 1
+        },
+        {
           "name": "Ancient Copper Dragon",
           "quantity": 1
         },
@@ -5701,6 +5765,10 @@
       "numDecks": 25262,
       "cards": [
         {
+          "name": "Isshin, Two Heavens as One",
+          "quantity": 1
+        },
+        {
           "name": "Adeline, Resplendent Cathar",
           "quantity": 1
         },
@@ -6052,6 +6120,10 @@
       ],
       "numDecks": 25028,
       "cards": [
+        {
+          "name": "Ms. Bumbleflower",
+          "quantity": 1
+        },
         {
           "name": "Adarkar Wastes",
           "quantity": 1
@@ -6422,6 +6494,10 @@
       ],
       "numDecks": 24300,
       "cards": [
+        {
+          "name": "Ulalek, Fused Atrocity",
+          "quantity": 1
+        },
         {
           "name": "Adarkar Wastes",
           "quantity": 1
@@ -6822,6 +6898,10 @@
       "numDecks": 23680,
       "cards": [
         {
+          "name": "Vivi Ornitier",
+          "quantity": 1
+        },
+        {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
         },
@@ -7169,6 +7249,10 @@
       ],
       "numDecks": 23111,
       "cards": [
+        {
+          "name": "Teval, the Balanced Scale",
+          "quantity": 1
+        },
         {
           "name": "Afterlife from the Loam",
           "quantity": 1
@@ -7538,6 +7622,10 @@
       "numDecks": 23048,
       "cards": [
         {
+          "name": "Baylen, the Haymaker",
+          "quantity": 1
+        },
+        {
           "name": "Anointed Procession",
           "quantity": 1
         },
@@ -7824,6 +7912,10 @@
       ],
       "numDecks": 22773,
       "cards": [
+        {
+          "name": "Chatterfang, Squirrel General",
+          "quantity": 1
+        },
         {
           "name": "Academy Manufactor",
           "quantity": 1
@@ -8172,6 +8264,10 @@
       "numDecks": 22315,
       "cards": [
         {
+          "name": "Hakbal of the Surging Soul",
+          "quantity": 1
+        },
+        {
           "name": "Aetherize",
           "quantity": 1
         },
@@ -8510,6 +8606,10 @@
       ],
       "numDecks": 22063,
       "cards": [
+        {
+          "name": "Valgavoth, Harrower of Souls",
+          "quantity": 1
+        },
         {
           "name": "Ankh of Mishra",
           "quantity": 1
@@ -8864,6 +8964,10 @@
       ],
       "numDecks": 22014,
       "cards": [
+        {
+          "name": "Esika, God of the Tree",
+          "quantity": 1
+        },
         {
           "name": "Altar of the Pantheon",
           "quantity": 1
@@ -9253,6 +9357,10 @@
       "numDecks": 21645,
       "cards": [
         {
+          "name": "Muldrotha, the Gravetide",
+          "quantity": 1
+        },
+        {
           "name": "Accursed Marauder",
           "quantity": 1
         },
@@ -9612,6 +9720,10 @@
       ],
       "numDecks": 21206,
       "cards": [
+        {
+          "name": "The Necrobloom",
+          "quantity": 1
+        },
         {
           "name": "Aftermath Analyst",
           "quantity": 1
@@ -10369,6 +10481,10 @@
       "numDecks": 21158,
       "cards": [
         {
+          "name": "Arcades, the Strategist",
+          "quantity": 1
+        },
+        {
           "name": "Access Tunnel",
           "quantity": 1
         },
@@ -10724,6 +10840,10 @@
       ],
       "numDecks": 21075,
       "cards": [
+        {
+          "name": "Animar, Soul of Elements",
+          "quantity": 1
+        },
         {
           "name": "Ancestral Statue",
           "quantity": 1
@@ -11084,6 +11204,10 @@
       "numDecks": 20957,
       "cards": [
         {
+          "name": "Wilhelt, the Rotcleaver",
+          "quantity": 1
+        },
+        {
           "name": "Accursed Marauder",
           "quantity": 1
         },
@@ -11427,6 +11551,10 @@
       ],
       "numDecks": 20673,
       "cards": [
+        {
+          "name": "Mr. House, President and CEO",
+          "quantity": 1
+        },
         {
           "name": "Academy Manufactor",
           "quantity": 1
@@ -11788,6 +11916,10 @@
       "numDecks": 20573,
       "cards": [
         {
+          "name": "Voja, Jaws of the Conclave",
+          "quantity": 1
+        },
+        {
           "name": "Akroma's Will",
           "quantity": 1
         },
@@ -12144,6 +12276,10 @@
       ],
       "numDecks": 20504,
       "cards": [
+        {
+          "name": "Aragorn, the Uniter",
+          "quantity": 1
+        },
         {
           "name": "Annie Joins Up",
           "quantity": 1
@@ -12513,6 +12649,10 @@
       "numDecks": 20440,
       "cards": [
         {
+          "name": "Gishath, Sun's Avatar",
+          "quantity": 1
+        },
+        {
           "name": "Akroma's Will",
           "quantity": 1
         },
@@ -12860,6 +13000,10 @@
       "colorIdentity": [],
       "numDecks": 20159,
       "cards": [
+        {
+          "name": "Zhulodok, Void Gorger",
+          "quantity": 1
+        },
         {
           "name": "Abstruse Archaic",
           "quantity": 1
@@ -13232,6 +13376,10 @@
       "numDecks": 20128,
       "cards": [
         {
+          "name": "Bello, Bard of the Brambles",
+          "quantity": 1
+        },
+        {
           "name": "Abrade",
           "quantity": 1
         },
@@ -13571,6 +13719,10 @@
       ],
       "numDecks": 20009,
       "cards": [
+        {
+          "name": "Rin and Seri, Inseparable",
+          "quantity": 1
+        },
         {
           "name": "Ajani, Nacatl Pariah",
           "quantity": 1
@@ -13923,6 +14075,10 @@
       ],
       "numDecks": 19858,
       "cards": [
+        {
+          "name": "Caesar, Legion's Emperor",
+          "quantity": 1
+        },
         {
           "name": "Adeline, Resplendent Cathar",
           "quantity": 1
@@ -14287,6 +14443,10 @@
       "numDecks": 19823,
       "cards": [
         {
+          "name": "Shorikai, Genesis Engine",
+          "quantity": 1
+        },
+        {
           "name": "Adarkar Wastes",
           "quantity": 1
         },
@@ -14634,6 +14794,10 @@
       ],
       "numDecks": 19683,
       "cards": [
+        {
+          "name": "Hashaton, Scarab's Fist",
+          "quantity": 1
+        },
         {
           "name": "Accursed Duneyard",
           "quantity": 1
@@ -15010,6 +15174,10 @@
       "numDecks": 19352,
       "cards": [
         {
+          "name": "Meren of Clan Nel Toth",
+          "quantity": 1
+        },
+        {
           "name": "Accursed Marauder",
           "quantity": 1
         },
@@ -15349,6 +15517,10 @@
       ],
       "numDecks": 19251,
       "cards": [
+        {
+          "name": "Flubs, the Fool",
+          "quantity": 1
+        },
         {
           "name": "Abundance",
           "quantity": 1
@@ -15706,6 +15878,10 @@
       ],
       "numDecks": 19111,
       "cards": [
+        {
+          "name": "Breya, Etherium Shaper",
+          "quantity": 1
+        },
         {
           "name": "Academy Ruins",
           "quantity": 1
@@ -16094,6 +16270,10 @@
       "numDecks": 18870,
       "cards": [
         {
+          "name": "Teysa Karlov",
+          "quantity": 1
+        },
+        {
           "name": "Anguished Unmaking",
           "quantity": 1
         },
@@ -16431,6 +16611,10 @@
       ],
       "numDecks": 18858,
       "cards": [
+        {
+          "name": "Go-Shintai of Life's Origin",
+          "quantity": 1
+        },
         {
           "name": "Aang's Journey",
           "quantity": 1
@@ -16815,6 +16999,10 @@
       "numDecks": 18715,
       "cards": [
         {
+          "name": "Ghyrson Starn, Kelermorph",
+          "quantity": 1
+        },
+        {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
         },
@@ -17154,6 +17342,10 @@
       ],
       "numDecks": 18367,
       "cards": [
+        {
+          "name": "Korvold, Fae-Cursed King",
+          "quantity": 1
+        },
         {
           "name": "Abrupt Decay",
           "quantity": 1
@@ -17523,6 +17715,10 @@
       "numDecks": 18300,
       "cards": [
         {
+          "name": "Obeka, Splitter of Seconds",
+          "quantity": 1
+        },
+        {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
         },
@@ -17877,6 +18073,10 @@
       "numDecks": 18217,
       "cards": [
         {
+          "name": "K'rrik, Son of Yawgmoth",
+          "quantity": 1
+        },
+        {
           "name": "Aetherflux Reservoir",
           "quantity": 1
         },
@@ -18192,6 +18392,10 @@
       ],
       "numDecks": 18031,
       "cards": [
+        {
+          "name": "Kefka, Court Mage",
+          "quantity": 1
+        },
         {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
@@ -18566,6 +18770,10 @@
       ],
       "numDecks": 18012,
       "cards": [
+        {
+          "name": "Tom Bombadil",
+          "quantity": 1
+        },
         {
           "name": "Arcane Signet",
           "quantity": 1
@@ -18951,6 +19159,10 @@
       "numDecks": 17806,
       "cards": [
         {
+          "name": "Oloro, Ageless Ascetic",
+          "quantity": 1
+        },
+        {
           "name": "Aetherflux Reservoir",
           "quantity": 1
         },
@@ -19309,6 +19521,10 @@
       "numDecks": 17806,
       "cards": [
         {
+          "name": "Sephiroth, Fabled SOLDIER",
+          "quantity": 1
+        },
+        {
           "name": "Accursed Marauder",
           "quantity": 1
         },
@@ -19619,6 +19835,10 @@
       ],
       "numDecks": 17723,
       "cards": [
+        {
+          "name": "Ygra, Eater of All",
+          "quantity": 1
+        },
         {
           "name": "Academy Manufactor",
           "quantity": 1
@@ -19959,6 +20179,10 @@
       ],
       "numDecks": 17683,
       "cards": [
+        {
+          "name": "Glarb, Calamity's Augur",
+          "quantity": 1
+        },
         {
           "name": "Aesi, Tyrant of Gyre Strait",
           "quantity": 1
@@ -20327,6 +20551,10 @@
       "numDecks": 17566,
       "cards": [
         {
+          "name": "Eriette of the Charmed Apple",
+          "quantity": 1
+        },
+        {
           "name": "All That Glitters",
           "quantity": 1
         },
@@ -20654,6 +20882,10 @@
       ],
       "numDecks": 17534,
       "cards": [
+        {
+          "name": "Atla Palani, Nest Tender",
+          "quantity": 1
+        },
         {
           "name": "Annie Joins Up",
           "quantity": 1
@@ -21005,6 +21237,10 @@
       "numDecks": 17501,
       "cards": [
         {
+          "name": "Urza, Lord High Artificer",
+          "quantity": 1
+        },
+        {
           "name": "Academy Ruins",
           "quantity": 1
         },
@@ -21332,6 +21568,10 @@
       ],
       "numDecks": 17380,
       "cards": [
+        {
+          "name": "Cloud, Ex-SOLDIER",
+          "quantity": 1
+        },
         {
           "name": "Aerith, Last Ancient",
           "quantity": 1
@@ -21709,6 +21949,10 @@
       "numDecks": 17356,
       "cards": [
         {
+          "name": "Xyris, the Writhing Storm",
+          "quantity": 1
+        },
+        {
           "name": "Adrix and Nev, Twincasters",
           "quantity": 1
         },
@@ -22052,6 +22296,10 @@
       ],
       "numDecks": 17329,
       "cards": [
+        {
+          "name": "Fire Lord Azula",
+          "quantity": 1
+        },
         {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
@@ -22411,6 +22659,10 @@
       ],
       "numDecks": 17167,
       "cards": [
+        {
+          "name": "Kinnan, Bonder Prodigy",
+          "quantity": 1
+        },
         {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
@@ -22784,6 +23036,10 @@
       "numDecks": 17064,
       "cards": [
         {
+          "name": "Henzie \"Toolbox\" Torre",
+          "quantity": 1
+        },
+        {
           "name": "Ancient Brass Dragon",
           "quantity": 1
         },
@@ -23149,6 +23405,10 @@
       ],
       "numDecks": 16954,
       "cards": [
+        {
+          "name": "Ezio Auditore da Firenze",
+          "quantity": 1
+        },
         {
           "name": "Abstergo Entertainment",
           "quantity": 1
@@ -23527,6 +23787,10 @@
       "numDecks": 16775,
       "cards": [
         {
+          "name": "Omnath, Locus of Creation",
+          "quantity": 1
+        },
+        {
           "name": "Aesi, Tyrant of Gyre Strait",
           "quantity": 1
         },
@@ -23899,6 +24163,10 @@
       "numDecks": 16703,
       "cards": [
         {
+          "name": "Sidar Jabari of Zhalfir",
+          "quantity": 1
+        },
+        {
           "name": "Acclaimed Contender",
           "quantity": 1
         },
@@ -24259,6 +24527,10 @@
       "numDecks": 16629,
       "cards": [
         {
+          "name": "Zaxara, the Exemplary",
+          "quantity": 1
+        },
+        {
           "name": "Animist's Awakening",
           "quantity": 1
         },
@@ -24608,6 +24880,10 @@
       ],
       "numDecks": 16557,
       "cards": [
+        {
+          "name": "The First Sliver",
+          "quantity": 1
+        },
         {
           "name": "Arcane Signet",
           "quantity": 1
@@ -24996,6 +25272,10 @@
       "numDecks": 16523,
       "cards": [
         {
+          "name": "Arabella, Abandoned Doll",
+          "quantity": 1
+        },
+        {
           "name": "Access Tunnel",
           "quantity": 1
         },
@@ -25322,6 +25602,10 @@
       ],
       "numDecks": 16398,
       "cards": [
+        {
+          "name": "Niv-Mizzet, Parun",
+          "quantity": 1
+        },
         {
           "name": "Abrade",
           "quantity": 1
@@ -25659,6 +25943,10 @@
       ],
       "numDecks": 16185,
       "cards": [
+        {
+          "name": "Atraxa, Grand Unifier",
+          "quantity": 1
+        },
         {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
@@ -26040,6 +26328,10 @@
       "numDecks": 16105,
       "cards": [
         {
+          "name": "Urza, Chief Artificer",
+          "quantity": 1
+        },
+        {
           "name": "Academy Ruins",
           "quantity": 1
         },
@@ -26411,6 +26703,10 @@
       "numDecks": 16006,
       "cards": [
         {
+          "name": "Captain N'ghathrod",
+          "quantity": 1
+        },
+        {
           "name": "Aboleth Spawn",
           "quantity": 1
         },
@@ -26752,6 +27048,10 @@
       ],
       "numDecks": 15966,
       "cards": [
+        {
+          "name": "Sisay, Weatherlight Captain",
+          "quantity": 1
+        },
         {
           "name": "Abrupt Decay",
           "quantity": 1
@@ -27149,6 +27449,10 @@
       "numDecks": 15816,
       "cards": [
         {
+          "name": "Hearthhull, the Worldseed",
+          "quantity": 1
+        },
+        {
           "name": "Aftermath Analyst",
           "quantity": 1
         },
@@ -27509,6 +27813,10 @@
       "numDecks": 15674,
       "cards": [
         {
+          "name": "Queen Marchesa",
+          "quantity": 1
+        },
+        {
           "name": "Alexios, Deimos of Kosmos",
           "quantity": 1
         },
@@ -27866,6 +28174,10 @@
       ],
       "numDecks": 15571,
       "cards": [
+        {
+          "name": "Urtet, Remnant of Memnarch",
+          "quantity": 1
+        },
         {
           "name": "Alibou, Ancient Witness",
           "quantity": 1
@@ -28251,6 +28563,10 @@
       "numDecks": 15325,
       "cards": [
         {
+          "name": "Toph, the First Metalbender",
+          "quantity": 1
+        },
+        {
           "name": "Amulet of Vigor",
           "quantity": 1
         },
@@ -28613,6 +28929,10 @@
       "numDecks": 15220,
       "cards": [
         {
+          "name": "Magda, Brazen Outlaw",
+          "quantity": 1
+        },
+        {
           "name": "Abrade",
           "quantity": 1
         },
@@ -28939,6 +29259,10 @@
       ],
       "numDecks": 14991,
       "cards": [
+        {
+          "name": "Alela, Cunning Conqueror",
+          "quantity": 1
+        },
         {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
@@ -29275,6 +29599,10 @@
       ],
       "numDecks": 14977,
       "cards": [
+        {
+          "name": "Zinnia, Valley's Voice",
+          "quantity": 1
+        },
         {
           "name": "Adarkar Wastes",
           "quantity": 1
@@ -29639,6 +29967,10 @@
       ],
       "numDecks": 14854,
       "cards": [
+        {
+          "name": "Marneus Calgar",
+          "quantity": 1
+        },
         {
           "name": "Adeline, Resplendent Cathar",
           "quantity": 1
@@ -30012,6 +30344,10 @@
       "numDecks": 14652,
       "cards": [
         {
+          "name": "Alela, Artful Provocateur",
+          "quantity": 1
+        },
+        {
           "name": "Alela, Cunning Conqueror",
           "quantity": 1
         },
@@ -30371,6 +30707,10 @@
       "numDecks": 14638,
       "cards": [
         {
+          "name": "Stella Lee, Wild Card",
+          "quantity": 1
+        },
+        {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
         },
@@ -30706,6 +31046,10 @@
       ],
       "numDecks": 14511,
       "cards": [
+        {
+          "name": "Helga, Skittish Seer",
+          "quantity": 1
+        },
         {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
@@ -31058,6 +31402,10 @@
       ],
       "numDecks": 14372,
       "cards": [
+        {
+          "name": "Galadriel, Light of Valinor",
+          "quantity": 1
+        },
         {
           "name": "Aragorn and Arwen, Wed",
           "quantity": 1
@@ -31426,6 +31774,10 @@
       "numDecks": 14127,
       "cards": [
         {
+          "name": "Aesi, Tyrant of Gyre Strait",
+          "quantity": 1
+        },
+        {
           "name": "Ancient Greenwarden",
           "quantity": 1
         },
@@ -31749,6 +32101,10 @@
       ],
       "numDecks": 14065,
       "cards": [
+        {
+          "name": "Aminatou, Veil Piercer",
+          "quantity": 1
+        },
         {
           "name": "Adarkar Wastes",
           "quantity": 1
@@ -32118,6 +32474,10 @@
       "numDecks": 14008,
       "cards": [
         {
+          "name": "Zur the Enchanter",
+          "quantity": 1
+        },
+        {
           "name": "All That Glitters",
           "quantity": 1
         },
@@ -32478,6 +32838,10 @@
       "numDecks": 13826,
       "cards": [
         {
+          "name": "Be'lakor, the Dark Master",
+          "quantity": 1
+        },
+        {
           "name": "Arcane Signet",
           "quantity": 1
         },
@@ -32837,6 +33201,10 @@
       "numDecks": 13804,
       "cards": [
         {
+          "name": "Tovolar, Dire Overlord",
+          "quantity": 1
+        },
+        {
           "name": "Arcane Signet",
           "quantity": 1
         },
@@ -33174,6 +33542,10 @@
       ],
       "numDecks": 13719,
       "cards": [
+        {
+          "name": "Omnath, Locus of All",
+          "quantity": 1
+        },
         {
           "name": "Abzan Charm",
           "quantity": 1
@@ -33559,6 +33931,10 @@
       "numDecks": 13636,
       "cards": [
         {
+          "name": "Zurgo Stormrender",
+          "quantity": 1
+        },
+        {
           "name": "Abrade",
           "quantity": 1
         },
@@ -33923,6 +34299,10 @@
       "numDecks": 13392,
       "cards": [
         {
+          "name": "Satya, Aetherflux Genius",
+          "quantity": 1
+        },
+        {
           "name": "Adarkar Wastes",
           "quantity": 1
         },
@@ -34281,6 +34661,10 @@
       "numDecks": 13283,
       "cards": [
         {
+          "name": "Fynn, the Fangbearer",
+          "quantity": 1
+        },
+        {
           "name": "Access Tunnel",
           "quantity": 1
         },
@@ -34580,6 +34964,10 @@
       ],
       "numDecks": 13196,
       "cards": [
+        {
+          "name": "Kotis, the Fangkeeper",
+          "quantity": 1
+        },
         {
           "name": "Aether Tunnel",
           "quantity": 1
@@ -34936,6 +35324,10 @@
       "numDecks": 13152,
       "cards": [
         {
+          "name": "Etali, Primal Conqueror",
+          "quantity": 1
+        },
+        {
           "name": "Ancient Tomb",
           "quantity": 1
         },
@@ -35291,6 +35683,10 @@
       ],
       "numDecks": 13029,
       "cards": [
+        {
+          "name": "Ureni of the Unwritten",
+          "quantity": 1
+        },
         {
           "name": "Arcane Signet",
           "quantity": 1
@@ -35657,6 +36053,10 @@
       ],
       "numDecks": 12858,
       "cards": [
+        {
+          "name": "Najeela, the Blade-Blossom",
+          "quantity": 1
+        },
         {
           "name": "Arcane Signet",
           "quantity": 1
@@ -36049,6 +36449,10 @@
       "numDecks": 12849,
       "cards": [
         {
+          "name": "Sythis, Harvest's Hand",
+          "quantity": 1
+        },
+        {
           "name": "Abundant Growth",
           "quantity": 1
         },
@@ -36384,6 +36788,10 @@
       ],
       "numDecks": 12658,
       "cards": [
+        {
+          "name": "Choco, Seeker of Paradise",
+          "quantity": 1
+        },
         {
           "name": "Airborne Aid",
           "quantity": 1
@@ -36736,6 +37144,10 @@
       "numDecks": 12651,
       "cards": [
         {
+          "name": "Prosper, Tome-Bound",
+          "quantity": 1
+        },
+        {
           "name": "Academy Manufactor",
           "quantity": 1
         },
@@ -37075,6 +37487,10 @@
       ],
       "numDecks": 12551,
       "cards": [
+        {
+          "name": "Kykar, Wind's Fury",
+          "quantity": 1
+        },
         {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
@@ -37435,6 +37851,10 @@
       "numDecks": 12391,
       "cards": [
         {
+          "name": "Kuja, Genome Sorcerer",
+          "quantity": 1
+        },
+        {
           "name": "Abrade",
           "quantity": 1
         },
@@ -37766,6 +38186,10 @@
       ],
       "numDecks": 12213,
       "cards": [
+        {
+          "name": "Felothar the Steadfast",
+          "quantity": 1
+        },
         {
           "name": "Access Tunnel",
           "quantity": 1
@@ -38118,6 +38542,10 @@
       "numDecks": 12121,
       "cards": [
         {
+          "name": "Feather, the Redeemed",
+          "quantity": 1
+        },
+        {
           "name": "Akroan Crusader",
           "quantity": 1
         },
@@ -38448,6 +38876,10 @@
       ],
       "numDecks": 12116,
       "cards": [
+        {
+          "name": "Brago, King Eternal",
+          "quantity": 1
+        },
         {
           "name": "Adarkar Wastes",
           "quantity": 1
@@ -38782,6 +39214,10 @@
       ],
       "numDecks": 12004,
       "cards": [
+        {
+          "name": "Terra, Magical Adept",
+          "quantity": 1
+        },
         {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
@@ -39175,6 +39611,10 @@
       "numDecks": 11809,
       "cards": [
         {
+          "name": "Yarok, the Desecrated",
+          "quantity": 1
+        },
+        {
           "name": "Acidic Slime",
           "quantity": 1
         },
@@ -39532,6 +39972,10 @@
       ],
       "numDecks": 11785,
       "cards": [
+        {
+          "name": "The Wandering Minstrel",
+          "quantity": 1
+        },
         {
           "name": "Adventurer's Inn",
           "quantity": 1
@@ -39936,6 +40380,10 @@
       "numDecks": 11619,
       "cards": [
         {
+          "name": "Ragost, Deft Gastronaut",
+          "quantity": 1
+        },
+        {
           "name": "Academy Manufactor",
           "quantity": 1
         },
@@ -40275,6 +40723,10 @@
       ],
       "numDecks": 11585,
       "cards": [
+        {
+          "name": "Tidus, Yuna's Guardian",
+          "quantity": 1
+        },
         {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
@@ -40651,6 +41103,10 @@
       "numDecks": 11576,
       "cards": [
         {
+          "name": "Winota, Joiner of Forces",
+          "quantity": 1
+        },
+        {
           "name": "Abrade",
           "quantity": 1
         },
@@ -40998,6 +41454,10 @@
       "numDecks": 11151,
       "cards": [
         {
+          "name": "Hope Estheim",
+          "quantity": 1
+        },
+        {
           "name": "Absorb",
           "quantity": 1
         },
@@ -41333,6 +41793,10 @@
       ],
       "numDecks": 10818,
       "cards": [
+        {
+          "name": "Betor, Ancestor's Voice",
+          "quantity": 1
+        },
         {
           "name": "Anguished Unmaking",
           "quantity": 1
@@ -41693,6 +42157,10 @@
       ],
       "numDecks": 10544,
       "cards": [
+        {
+          "name": "Derevi, Empyrial Tactician",
+          "quantity": 1
+        },
         {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
@@ -42072,6 +42540,10 @@
       "numDecks": 10466,
       "cards": [
         {
+          "name": "Light-Paws, Emperor's Voice",
+          "quantity": 1
+        },
+        {
           "name": "All That Glitters",
           "quantity": 1
         },
@@ -42371,6 +42843,10 @@
       ],
       "numDecks": 10439,
       "cards": [
+        {
+          "name": "Terra, Herald of Hope",
+          "quantity": 1
+        },
         {
           "name": "Accursed Marauder",
           "quantity": 1
@@ -42743,6 +43219,10 @@
       ],
       "numDecks": 10436,
       "cards": [
+        {
+          "name": "Kilo, Apogee Mind",
+          "quantity": 1
+        },
         {
           "name": "Adarkar Wastes",
           "quantity": 1
@@ -43124,6 +43604,10 @@
       "numDecks": 10015,
       "cards": [
         {
+          "name": "Norman Osborn",
+          "quantity": 1
+        },
+        {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
         },
@@ -43488,6 +43972,10 @@
       "numDecks": 9548,
       "cards": [
         {
+          "name": "Jetmir, Nexus of Revels",
+          "quantity": 1
+        },
+        {
           "name": "Adeline, Resplendent Cathar",
           "quantity": 1
         },
@@ -43845,6 +44333,10 @@
       ],
       "numDecks": 9181,
       "cards": [
+        {
+          "name": "Avatar Aang",
+          "quantity": 1
+        },
         {
           "name": "Aang's Iceberg",
           "quantity": 1
@@ -44218,6 +44710,10 @@
       "numDecks": 9181,
       "cards": [
         {
+          "name": "Eshki, Temur's Roar",
+          "quantity": 1
+        },
+        {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
         },
@@ -44579,6 +45075,10 @@
       ],
       "numDecks": 9070,
       "cards": [
+        {
+          "name": "Sliver Overlord",
+          "quantity": 1
+        },
         {
           "name": "Arcane Signet",
           "quantity": 1
@@ -44970,6 +45470,10 @@
       "numDecks": 9013,
       "cards": [
         {
+          "name": "Tifa Lockhart",
+          "quantity": 1
+        },
+        {
           "name": "Adventuring Gear",
           "quantity": 1
         },
@@ -45284,6 +45788,10 @@
       ],
       "numDecks": 8674,
       "cards": [
+        {
+          "name": "Lightning, Army of One",
+          "quantity": 1
+        },
         {
           "name": "Aggravated Assault",
           "quantity": 1
@@ -45616,6 +46124,10 @@
       ],
       "numDecks": 8631,
       "cards": [
+        {
+          "name": "Chulane, Teller of Tales",
+          "quantity": 1
+        },
         {
           "name": "Aluren",
           "quantity": 1
@@ -45976,6 +46488,10 @@
       "numDecks": 8278,
       "cards": [
         {
+          "name": "The Gitrog Monster",
+          "quantity": 1
+        },
+        {
           "name": "Abrupt Decay",
           "quantity": 1
         },
@@ -46327,6 +46843,10 @@
       "numDecks": 7972,
       "cards": [
         {
+          "name": "Toxrill, the Corrosive",
+          "quantity": 1
+        },
+        {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
         },
@@ -46666,6 +47186,10 @@
       ],
       "numDecks": 7829,
       "cards": [
+        {
+          "name": "Kess, Dissident Mage",
+          "quantity": 1
+        },
         {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
@@ -47039,6 +47563,10 @@
       "numDecks": 7365,
       "cards": [
         {
+          "name": "Ghave, Guru of Spores",
+          "quantity": 1
+        },
+        {
           "name": "Anguished Unmaking",
           "quantity": 1
         },
@@ -47397,6 +47925,10 @@
       "numDecks": 7316,
       "cards": [
         {
+          "name": "Marwyn, the Nurturer",
+          "quantity": 1
+        },
+        {
           "name": "Allosaurus Shepherd",
           "quantity": 1
         },
@@ -47708,6 +48240,10 @@
       ],
       "numDecks": 7255,
       "cards": [
+        {
+          "name": "Maelstrom Wanderer",
+          "quantity": 1
+        },
         {
           "name": "Annoyed Altisaur",
           "quantity": 1
@@ -48056,6 +48592,10 @@
       ],
       "numDecks": 7244,
       "cards": [
+        {
+          "name": "Iroh, Grand Lotus",
+          "quantity": 1
+        },
         {
           "name": "Aang's Journey",
           "quantity": 1
@@ -48408,6 +48948,10 @@
       "numDecks": 7112,
       "cards": [
         {
+          "name": "Ezuri, Claw of Progress",
+          "quantity": 1
+        },
+        {
           "name": "Arachnogenesis",
           "quantity": 1
         },
@@ -48743,6 +49287,10 @@
       ],
       "numDecks": 7066,
       "cards": [
+        {
+          "name": "Jin Sakai, Ghost of Tsushima",
+          "quantity": 1
+        },
         {
           "name": "Adarkar Wastes",
           "quantity": 1
@@ -49105,6 +49653,10 @@
       ],
       "numDecks": 6802,
       "cards": [
+        {
+          "name": "Cosmic Spider-Man",
+          "quantity": 1
+        },
         {
           "name": "Amazing Acrobatics",
           "quantity": 1
@@ -49472,6 +50024,10 @@
       "numDecks": 6312,
       "cards": [
         {
+          "name": "Talrand, Sky Summoner",
+          "quantity": 1
+        },
+        {
           "name": "Aetherize",
           "quantity": 1
         },
@@ -49766,6 +50322,10 @@
       ],
       "numDecks": 6305,
       "cards": [
+        {
+          "name": "Elenda, the Dusk Rose",
+          "quantity": 1
+        },
         {
           "name": "Anguished Unmaking",
           "quantity": 1
@@ -50102,6 +50662,10 @@
       ],
       "numDecks": 6272,
       "cards": [
+        {
+          "name": "Fire Lord Zuko",
+          "quantity": 1
+        },
         {
           "name": "Abzan Falconer",
           "quantity": 1
@@ -50454,6 +51018,10 @@
       ],
       "numDecks": 6223,
       "cards": [
+        {
+          "name": "Karador, Ghost Chieftain",
+          "quantity": 1
+        },
         {
           "name": "Accursed Marauder",
           "quantity": 1
@@ -51178,6 +51746,10 @@
       "numDecks": 5885,
       "cards": [
         {
+          "name": "Anim Pakal, Thousandth Moon",
+          "quantity": 1
+        },
+        {
           "name": "Agate Instigator",
           "quantity": 1
         },
@@ -51508,6 +52080,10 @@
       "numDecks": 5778,
       "cards": [
         {
+          "name": "Selvala, Heart of the Wilds",
+          "quantity": 1
+        },
+        {
           "name": "Allosaurus Shepherd",
           "quantity": 1
         },
@@ -51819,6 +52395,10 @@
       ],
       "numDecks": 5678,
       "cards": [
+        {
+          "name": "Eddie Brock",
+          "quantity": 1
+        },
         {
           "name": "Agent Venom",
           "quantity": 1
@@ -52175,6 +52755,10 @@
       "colorIdentity": [],
       "numDecks": 5550,
       "cards": [
+        {
+          "name": "Kozilek, the Great Distortion",
+          "quantity": 1
+        },
         {
           "name": "All Is Dust",
           "quantity": 1
@@ -52555,6 +53139,10 @@
       "numDecks": 5363,
       "cards": [
         {
+          "name": "Karlov of the Ghost Council",
+          "quantity": 1
+        },
+        {
           "name": "Aetherflux Reservoir",
           "quantity": 1
         },
@@ -52898,6 +53486,10 @@
       ],
       "numDecks": 5182,
       "cards": [
+        {
+          "name": "Sokka, Tenacious Tactician",
+          "quantity": 1
+        },
         {
           "name": "Abandon Attachments",
           "quantity": 1
@@ -53245,6 +53837,10 @@
       ],
       "numDecks": 4824,
       "cards": [
+        {
+          "name": "Aloy, Savior of Meridian",
+          "quantity": 1
+        },
         {
           "name": "Academy Ruins",
           "quantity": 1
@@ -53597,6 +54193,10 @@
       "numDecks": 4676,
       "cards": [
         {
+          "name": "Aurelia, the Warleader",
+          "quantity": 1
+        },
+        {
           "name": "Aggravated Assault",
           "quantity": 1
         },
@@ -53924,6 +54524,10 @@
       ],
       "numDecks": 4554,
       "cards": [
+        {
+          "name": "Katara, the Fearless",
+          "quantity": 1
+        },
         {
           "name": "Aang and Katara",
           "quantity": 1
@@ -54271,6 +54875,10 @@
       "numDecks": 4435,
       "cards": [
         {
+          "name": "Purphoros, God of the Forge",
+          "quantity": 1
+        },
+        {
           "name": "Abrade",
           "quantity": 1
         },
@@ -54565,6 +55173,10 @@
       ],
       "numDecks": 4066,
       "cards": [
+        {
+          "name": "Grenzo, Dungeon Warden",
+          "quantity": 1
+        },
         {
           "name": "Anger",
           "quantity": 1
@@ -54904,6 +55516,10 @@
       "numDecks": 3919,
       "cards": [
         {
+          "name": "Kratos, God of War",
+          "quantity": 1
+        },
+        {
           "name": "Abrade",
           "quantity": 1
         },
@@ -55199,6 +55815,10 @@
       ],
       "numDecks": 3874,
       "cards": [
+        {
+          "name": "Zacama, Primal Calamity",
+          "quantity": 1
+        },
         {
           "name": "Arcane Signet",
           "quantity": 1
@@ -55543,6 +56163,10 @@
       "numDecks": 3790,
       "cards": [
         {
+          "name": "Ozai, the Phoenix King",
+          "quantity": 1
+        },
+        {
           "name": "Aggravated Assault",
           "quantity": 1
         },
@@ -55880,6 +56504,10 @@
       ],
       "numDecks": 3117,
       "cards": [
+        {
+          "name": "Hei Bai, Forest Guardian",
+          "quantity": 1
+        },
         {
           "name": "Aang's Journey",
           "quantity": 1
@@ -56249,6 +56877,10 @@
       "numDecks": 2865,
       "cards": [
         {
+          "name": "Aang, at the Crossroads",
+          "quantity": 1
+        },
+        {
           "name": "Aang, Swift Savior",
           "quantity": 1
         },
@@ -56607,341 +57239,6 @@
       ]
     },
     {
-      "name": "Toph, Hardheaded Teacher",
-      "slug": "toph-hardheaded-teacher",
-      "colorIdentity": [
-        "R",
-        "G"
-      ],
-      "numDecks": 2419,
-      "cards": [
-        {
-          "name": "Amulet of Vigor",
-          "quantity": 1
-        },
-        {
-          "name": "Arcane Signet",
-          "quantity": 1
-        },
-        {
-          "name": "Ashaya, Soul of the Wild",
-          "quantity": 1
-        },
-        {
-          "name": "Ba Sing Se",
-          "quantity": 1
-        },
-        {
-          "name": "Badgermole",
-          "quantity": 1
-        },
-        {
-          "name": "Badgermole Cub",
-          "quantity": 1
-        },
-        {
-          "name": "Beast Within",
-          "quantity": 1
-        },
-        {
-          "name": "Bitter Work",
-          "quantity": 1
-        },
-        {
-          "name": "Blasphemous Act",
-          "quantity": 1
-        },
-        {
-          "name": "Bumi, Unleashed",
-          "quantity": 1
-        },
-        {
-          "name": "Chaos Warp",
-          "quantity": 1
-        },
-        {
-          "name": "Cinder Glade",
-          "quantity": 1
-        },
-        {
-          "name": "Command Tower",
-          "quantity": 1
-        },
-        {
-          "name": "Commercial District",
-          "quantity": 1
-        },
-        {
-          "name": "Cracked Earth Technique",
-          "quantity": 1
-        },
-        {
-          "name": "Crop Rotation",
-          "quantity": 1
-        },
-        {
-          "name": "Cycle of Renewal",
-          "quantity": 1
-        },
-        {
-          "name": "Disciple of Freyalise",
-          "quantity": 1
-        },
-        {
-          "name": "Earthbender Ascension",
-          "quantity": 1
-        },
-        {
-          "name": "Earthbending Lesson",
-          "quantity": 1
-        },
-        {
-          "name": "Earthbending Student",
-          "quantity": 1
-        },
-        {
-          "name": "Entish Restoration",
-          "quantity": 1
-        },
-        {
-          "name": "Evendo Brushrazer",
-          "quantity": 1
-        },
-        {
-          "name": "Evolution Sage",
-          "quantity": 1
-        },
-        {
-          "name": "Evolving Wilds",
-          "quantity": 1
-        },
-        {
-          "name": "Explore",
-          "quantity": 1
-        },
-        {
-          "name": "Fabled Passage",
-          "quantity": 1
-        },
-        {
-          "name": "Farseek",
-          "quantity": 1
-        },
-        {
-          "name": "Forest",
-          "quantity": 12
-        },
-        {
-          "name": "Goblin Anarchomancer",
-          "quantity": 1
-        },
-        {
-          "name": "Hardened Scales",
-          "quantity": 1
-        },
-        {
-          "name": "Harrow",
-          "quantity": 1
-        },
-        {
-          "name": "Heroic Intervention",
-          "quantity": 1
-        },
-        {
-          "name": "Horizon Explorer",
-          "quantity": 1
-        },
-        {
-          "name": "Inspiring Call",
-          "quantity": 1
-        },
-        {
-          "name": "Karplusan Forest",
-          "quantity": 1
-        },
-        {
-          "name": "Lotus Cobra",
-          "quantity": 1
-        },
-        {
-          "name": "Meltstrider Eulogist",
-          "quantity": 1
-        },
-        {
-          "name": "Mountain",
-          "quantity": 8
-        },
-        {
-          "name": "Myriad Landscape",
-          "quantity": 1
-        },
-        {
-          "name": "Nahiri's Lithoforming",
-          "quantity": 1
-        },
-        {
-          "name": "Nature's Lore",
-          "quantity": 1
-        },
-        {
-          "name": "Omnath, Locus of Rage",
-          "quantity": 1
-        },
-        {
-          "name": "Orcish Lumberjack",
-          "quantity": 1
-        },
-        {
-          "name": "Origin of Metalbending",
-          "quantity": 1
-        },
-        {
-          "name": "Pinnacle Monk",
-          "quantity": 1
-        },
-        {
-          "name": "Rampant Growth",
-          "quantity": 1
-        },
-        {
-          "name": "Redirect Lightning",
-          "quantity": 1
-        },
-        {
-          "name": "Rockalanche",
-          "quantity": 1
-        },
-        {
-          "name": "Rockfall Vale",
-          "quantity": 1
-        },
-        {
-          "name": "Roiling Regrowth",
-          "quantity": 1
-        },
-        {
-          "name": "Rootbound Crag",
-          "quantity": 1
-        },
-        {
-          "name": "Rumble Arena",
-          "quantity": 1
-        },
-        {
-          "name": "Sabotender",
-          "quantity": 1
-        },
-        {
-          "name": "Scute Swarm",
-          "quantity": 1
-        },
-        {
-          "name": "Secret Tunnel",
-          "quantity": 1
-        },
-        {
-          "name": "Seismic Sense",
-          "quantity": 1
-        },
-        {
-          "name": "Shared Roots",
-          "quantity": 1
-        },
-        {
-          "name": "Skullclamp",
-          "quantity": 1
-        },
-        {
-          "name": "Sol Ring",
-          "quantity": 1
-        },
-        {
-          "name": "Solid Ground",
-          "quantity": 1
-        },
-        {
-          "name": "Spelunking",
-          "quantity": 1
-        },
-        {
-          "name": "Stomping Ground",
-          "quantity": 1
-        },
-        {
-          "name": "Sylvan Safekeeper",
-          "quantity": 1
-        },
-        {
-          "name": "Tannuk, Memorial Ensign",
-          "quantity": 1
-        },
-        {
-          "name": "Terramorphic Expanse",
-          "quantity": 1
-        },
-        {
-          "name": "Terrasymbiosis",
-          "quantity": 1
-        },
-        {
-          "name": "The Legend of Kyoshi",
-          "quantity": 1
-        },
-        {
-          "name": "Three Visits",
-          "quantity": 1
-        },
-        {
-          "name": "Tireless Provisioner",
-          "quantity": 1
-        },
-        {
-          "name": "Titania, Protector of Argoth",
-          "quantity": 1
-        },
-        {
-          "name": "Toph, Earthbending Master",
-          "quantity": 1
-        },
-        {
-          "name": "Toph, Greatest Earthbender",
-          "quantity": 1
-        },
-        {
-          "name": "Toph, the Blind Bandit",
-          "quantity": 1
-        },
-        {
-          "name": "True Ancestry",
-          "quantity": 1
-        },
-        {
-          "name": "Urza's Saga",
-          "quantity": 1
-        },
-        {
-          "name": "Valakut Exploration",
-          "quantity": 1
-        },
-        {
-          "name": "Windswept Heath",
-          "quantity": 1
-        },
-        {
-          "name": "Wooded Foothills",
-          "quantity": 1
-        },
-        {
-          "name": "Yavimaya, Cradle of Growth",
-          "quantity": 1
-        },
-        {
-          "name": "Zuran Orb",
-          "quantity": 1
-        }
-      ]
-    },
-    {
       "name": "Rashmi, Eternities Crafter",
       "slug": "rashmi-eternities-crafter",
       "colorIdentity": [
@@ -56950,6 +57247,10 @@
       ],
       "numDecks": 2116,
       "cards": [
+        {
+          "name": "Rashmi, Eternities Crafter",
+          "quantity": 1
+        },
         {
           "name": "Alchemist's Refuge",
           "quantity": 1
@@ -57290,6 +57591,10 @@
       ],
       "numDecks": 1812,
       "cards": [
+        {
+          "name": "The Destined Warrior",
+          "quantity": 1
+        },
         {
           "name": "Adarkar Wastes",
           "quantity": 1
@@ -57649,6 +57954,10 @@
       "numDecks": 1630,
       "cards": [
         {
+          "name": "Elesh Norn, Grand Cenobite",
+          "quantity": 1
+        },
+        {
           "name": "Adeline, Resplendent Cathar",
           "quantity": 1
         },
@@ -57947,6 +58256,10 @@
       ],
       "numDecks": 1491,
       "cards": [
+        {
+          "name": "Edgar, Charmed Groom",
+          "quantity": 1
+        },
         {
           "name": "Anguished Unmaking",
           "quantity": 1
@@ -58274,353 +58587,6 @@
       ]
     },
     {
-      "name": "High Perfect Morcant",
-      "slug": "high-perfect-morcant",
-      "colorIdentity": [
-        "B",
-        "G"
-      ],
-      "numDecks": 1422,
-      "cards": [
-        {
-          "name": "Abomination of Llanowar",
-          "quantity": 1
-        },
-        {
-          "name": "Allosaurus Shepherd",
-          "quantity": 1
-        },
-        {
-          "name": "Arcane Signet",
-          "quantity": 1
-        },
-        {
-          "name": "Assassin's Trophy",
-          "quantity": 1
-        },
-        {
-          "name": "Atomize",
-          "quantity": 1
-        },
-        {
-          "name": "Beast Whisperer",
-          "quantity": 1
-        },
-        {
-          "name": "Beast Within",
-          "quantity": 1
-        },
-        {
-          "name": "Blowfly Infestation",
-          "quantity": 1
-        },
-        {
-          "name": "Bojuka Bog",
-          "quantity": 1
-        },
-        {
-          "name": "Cavern of Souls",
-          "quantity": 1
-        },
-        {
-          "name": "Circle of Dreams Druid",
-          "quantity": 1
-        },
-        {
-          "name": "Command Tower",
-          "quantity": 1
-        },
-        {
-          "name": "Crumbling Ashes",
-          "quantity": 1
-        },
-        {
-          "name": "Cultivate",
-          "quantity": 1
-        },
-        {
-          "name": "Deadly Rollick",
-          "quantity": 1
-        },
-        {
-          "name": "Deathcap Glade",
-          "quantity": 1
-        },
-        {
-          "name": "Deathrite Shaman",
-          "quantity": 1
-        },
-        {
-          "name": "Dionus, Elvish Archdruid",
-          "quantity": 1
-        },
-        {
-          "name": "Doubling Season",
-          "quantity": 1
-        },
-        {
-          "name": "Dwynen, Gilt-Leaf Daen",
-          "quantity": 1
-        },
-        {
-          "name": "Eladamri, Korvecdal",
-          "quantity": 1
-        },
-        {
-          "name": "Elderfang Venom",
-          "quantity": 1
-        },
-        {
-          "name": "Elven Ambush",
-          "quantity": 1
-        },
-        {
-          "name": "Elves of Deep Shadow",
-          "quantity": 1
-        },
-        {
-          "name": "Elvish Archdruid",
-          "quantity": 1
-        },
-        {
-          "name": "Elvish Champion",
-          "quantity": 1
-        },
-        {
-          "name": "Elvish Harbinger",
-          "quantity": 1
-        },
-        {
-          "name": "Elvish Mystic",
-          "quantity": 1
-        },
-        {
-          "name": "Elvish Promenade",
-          "quantity": 1
-        },
-        {
-          "name": "Elvish Warmaster",
-          "quantity": 1
-        },
-        {
-          "name": "Evolution Sage",
-          "quantity": 1
-        },
-        {
-          "name": "Ezuri, Renegade Leader",
-          "quantity": 1
-        },
-        {
-          "name": "Flourishing Defenses",
-          "quantity": 1
-        },
-        {
-          "name": "Forest",
-          "quantity": 10
-        },
-        {
-          "name": "Freyalise, Llanowar's Fury",
-          "quantity": 1
-        },
-        {
-          "name": "Fyndhorn Elves",
-          "quantity": 1
-        },
-        {
-          "name": "Galadhrim Ambush",
-          "quantity": 1
-        },
-        {
-          "name": "Galadhrim Brigade",
-          "quantity": 1
-        },
-        {
-          "name": "Generous Patron",
-          "quantity": 1
-        },
-        {
-          "name": "Gilt-Leaf Palace",
-          "quantity": 1
-        },
-        {
-          "name": "Glissa Sunslayer",
-          "quantity": 1
-        },
-        {
-          "name": "Golgari Charm",
-          "quantity": 1
-        },
-        {
-          "name": "Guardian Project",
-          "quantity": 1
-        },
-        {
-          "name": "Herald's Horn",
-          "quantity": 1
-        },
-        {
-          "name": "Heroic Intervention",
-          "quantity": 1
-        },
-        {
-          "name": "Imperious Perfect",
-          "quantity": 1
-        },
-        {
-          "name": "Infectious Inquiry",
-          "quantity": 1
-        },
-        {
-          "name": "Karn's Bastion",
-          "quantity": 1
-        },
-        {
-          "name": "Kindred Dominance",
-          "quantity": 1
-        },
-        {
-          "name": "Lathril, Blade of the Elves",
-          "quantity": 1
-        },
-        {
-          "name": "Leaf-Crowned Visionary",
-          "quantity": 1
-        },
-        {
-          "name": "Lightning Greaves",
-          "quantity": 1
-        },
-        {
-          "name": "Llanowar Elves",
-          "quantity": 1
-        },
-        {
-          "name": "Llanowar Wastes",
-          "quantity": 1
-        },
-        {
-          "name": "Lys Alana Huntmaster",
-          "quantity": 1
-        },
-        {
-          "name": "Marwyn, the Nurturer",
-          "quantity": 1
-        },
-        {
-          "name": "Massacre Girl, Known Killer",
-          "quantity": 1
-        },
-        {
-          "name": "Nature's Lore",
-          "quantity": 1
-        },
-        {
-          "name": "Necroskitter",
-          "quantity": 1
-        },
-        {
-          "name": "Overgrown Tomb",
-          "quantity": 1
-        },
-        {
-          "name": "Path of Ancestry",
-          "quantity": 1
-        },
-        {
-          "name": "Poison-Tip Archer",
-          "quantity": 1
-        },
-        {
-          "name": "Priest of Titania",
-          "quantity": 1
-        },
-        {
-          "name": "Prowess of the Fair",
-          "quantity": 1
-        },
-        {
-          "name": "Putrefy",
-          "quantity": 1
-        },
-        {
-          "name": "Rampant Growth",
-          "quantity": 1
-        },
-        {
-          "name": "Reclamation Sage",
-          "quantity": 1
-        },
-        {
-          "name": "Shaman of the Pack",
-          "quantity": 1
-        },
-        {
-          "name": "Skullclamp",
-          "quantity": 1
-        },
-        {
-          "name": "Sol Ring",
-          "quantity": 1
-        },
-        {
-          "name": "Swamp",
-          "quantity": 7
-        },
-        {
-          "name": "Swiftfoot Boots",
-          "quantity": 1
-        },
-        {
-          "name": "Three Tree City",
-          "quantity": 1
-        },
-        {
-          "name": "Triumph of the Hordes",
-          "quantity": 1
-        },
-        {
-          "name": "Tyvar Kell",
-          "quantity": 1
-        },
-        {
-          "name": "Tyvar the Bellicose",
-          "quantity": 1
-        },
-        {
-          "name": "Undergrowth Stadium",
-          "quantity": 1
-        },
-        {
-          "name": "Unnatural Restoration",
-          "quantity": 1
-        },
-        {
-          "name": "Verdant Catacombs",
-          "quantity": 1
-        },
-        {
-          "name": "Wastewood Verge",
-          "quantity": 1
-        },
-        {
-          "name": "Wirewood Lodge",
-          "quantity": 1
-        },
-        {
-          "name": "Wolverine Riders",
-          "quantity": 1
-        },
-        {
-          "name": "Woodland Cemetery",
-          "quantity": 1
-        },
-        {
-          "name": "Yavimaya, Cradle of Growth",
-          "quantity": 1
-        }
-      ]
-    },
-    {
       "name": "Reyav, Master Smith",
       "slug": "reyav-master-smith",
       "colorIdentity": [
@@ -58629,6 +58595,10 @@
       ],
       "numDecks": 628,
       "cards": [
+        {
+          "name": "Reyav, Master Smith",
+          "quantity": 1
+        },
         {
           "name": "Adelbert Steiner",
           "quantity": 1
@@ -58948,6 +58918,10 @@
       ],
       "numDecks": 244,
       "cards": [
+        {
+          "name": "Shabraz, the Skyshark",
+          "quantity": 1
+        },
         {
           "name": "Adarkar Wastes",
           "quantity": 1
@@ -59279,6 +59253,10 @@
       "numDecks": 202,
       "cards": [
         {
+          "name": "Rograkh, Son of Rohgahh",
+          "quantity": 1
+        },
+        {
           "name": "Abrade",
           "quantity": 1
         },
@@ -59589,6 +59567,10 @@
       ],
       "numDecks": 200,
       "cards": [
+        {
+          "name": "Vial Smasher the Fierce",
+          "quantity": 1
+        },
         {
           "name": "Abrade",
           "quantity": 1
@@ -59924,6 +59906,10 @@
       ],
       "numDecks": 175,
       "cards": [
+        {
+          "name": "Thrasios, Triton Hero",
+          "quantity": 1
+        },
         {
           "name": "Aesi, Tyrant of Gyre Strait",
           "quantity": 1
@@ -60267,6 +60253,10 @@
       "numDecks": 163,
       "cards": [
         {
+          "name": "Sakashima of a Thousand Faces",
+          "quantity": 1
+        },
+        {
           "name": "Arcane Signet",
           "quantity": 1
         },
@@ -60565,6 +60555,10 @@
       "numDecks": 158,
       "cards": [
         {
+          "name": "Krark, the Thumbless",
+          "quantity": 1
+        },
+        {
           "name": "Abrade",
           "quantity": 1
         },
@@ -60854,6 +60848,10 @@
       ],
       "numDecks": 139,
       "cards": [
+        {
+          "name": "Tormod, the Desecrator",
+          "quantity": 1
+        },
         {
           "name": "Accursed Marauder",
           "quantity": 1
@@ -61153,6 +61151,10 @@
       ],
       "numDecks": 122,
       "cards": [
+        {
+          "name": "Tymna the Weaver",
+          "quantity": 1
+        },
         {
           "name": "Aerith Gainsborough",
           "quantity": 1
@@ -61496,6 +61498,10 @@
       "numDecks": 110,
       "cards": [
         {
+          "name": "Tevesh Szat, Doom of Fools",
+          "quantity": 1
+        },
+        {
           "name": "Accursed Marauder",
           "quantity": 1
         },
@@ -61790,6 +61796,10 @@
       "numDecks": 92,
       "cards": [
         {
+          "name": "Kodama of the East Tree",
+          "quantity": 1
+        },
+        {
           "name": "Apex Devastator",
           "quantity": 1
         },
@@ -62083,6 +62093,10 @@
       ],
       "numDecks": 86,
       "cards": [
+        {
+          "name": "Brallin, Skyshark Rider",
+          "quantity": 1
+        },
         {
           "name": "Abrade",
           "quantity": 1
@@ -62386,6 +62400,10 @@
       ],
       "numDecks": 67,
       "cards": [
+        {
+          "name": "Ravos, Soultender",
+          "quantity": 1
+        },
         {
           "name": "Abandoned Air Temple",
           "quantity": 1
@@ -62706,6 +62724,10 @@
       "numDecks": 66,
       "cards": [
         {
+          "name": "Ishai, Ojutai Dragonspeaker",
+          "quantity": 1
+        },
+        {
           "name": "Absorb",
           "quantity": 1
         },
@@ -63024,6 +63046,10 @@
       ],
       "numDecks": 65,
       "cards": [
+        {
+          "name": "Reyhan, Last of the Abzan",
+          "quantity": 1
+        },
         {
           "name": "Abrupt Decay",
           "quantity": 1
@@ -63355,6 +63381,10 @@
       ],
       "numDecks": 58,
       "cards": [
+        {
+          "name": "Silas Renn, Seeker Adept",
+          "quantity": 1
+        },
         {
           "name": "Academy Ruins",
           "quantity": 1
@@ -63694,6 +63724,10 @@
       "numDecks": 50,
       "cards": [
         {
+          "name": "Ardenn, Intrepid Archaeologist",
+          "quantity": 1
+        },
+        {
           "name": "All That Glitters",
           "quantity": 1
         },
@@ -63984,6 +64018,10 @@
       ],
       "numDecks": 48,
       "cards": [
+        {
+          "name": "Ikra Shidiqi, the Usurper",
+          "quantity": 1
+        },
         {
           "name": "Accomplished Alchemist",
           "quantity": 1
@@ -64304,6 +64342,10 @@
       "numDecks": 44,
       "cards": [
         {
+          "name": "Sidar Kondo of Jamuraa",
+          "quantity": 1
+        },
+        {
           "name": "Annex Sentry",
           "quantity": 1
         },
@@ -64622,6 +64664,10 @@
       "numDecks": 35,
       "cards": [
         {
+          "name": "Jeska, Thrice Reborn",
+          "quantity": 1
+        },
+        {
           "name": "Ancient Tomb",
           "quantity": 1
         },
@@ -64916,6 +64962,10 @@
       ],
       "numDecks": 31,
       "cards": [
+        {
+          "name": "Akiri, Line-Slinger",
+          "quantity": 1
+        },
         {
           "name": "Akiri, Fearless Voyager",
           "quantity": 1
@@ -65248,6 +65298,10 @@
       "numDecks": 27,
       "cards": [
         {
+          "name": "Tana, the Bloodsower",
+          "quantity": 1
+        },
+        {
           "name": "Arcane Signet",
           "quantity": 1
         },
@@ -65575,6 +65629,10 @@
       "numDecks": 27,
       "cards": [
         {
+          "name": "Bruse Tarl, Boorish Herder",
+          "quantity": 1
+        },
+        {
           "name": "Aligned Heart",
           "quantity": 1
         },
@@ -65893,6 +65951,10 @@
       ],
       "numDecks": 21,
       "cards": [
+        {
+          "name": "Kydele, Chosen of Kruphix",
+          "quantity": 1
+        },
         {
           "name": "All-Fates Scroll",
           "quantity": 1
@@ -66225,6 +66287,10 @@
       "numDecks": 20,
       "cards": [
         {
+          "name": "Ludevic, Necro-Alchemist",
+          "quantity": 1
+        },
+        {
           "name": "Abandon Attachments",
           "quantity": 1
         },
@@ -66551,6 +66617,10 @@
       ],
       "numDecks": 18,
       "cards": [
+        {
+          "name": "Kraum, Ludevic's Opus",
+          "quantity": 1
+        },
         {
           "name": "An Offer You Can't Refuse",
           "quantity": 1
@@ -66881,6 +66951,10 @@
       ],
       "numDecks": 13,
       "cards": [
+        {
+          "name": "Malcolm, Keen-Eyed Navigator",
+          "quantity": 1
+        },
         {
           "name": "Academy Manufactor",
           "quantity": 1

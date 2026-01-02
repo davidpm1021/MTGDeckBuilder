@@ -186,3 +186,50 @@ Always use WUBRG order: White, Blue, Black, Red, Green
 - Commit often, small logical units
 - Descriptive commit messages: "feat(collection): add CSV parsing support"
 - Never commit to main directly
+
+## Data & Scraping
+
+Commander data lives in `src/assets/data/commanders.json`, sourced from EDHREC.
+
+### Scraping Commands
+
+```bash
+# Full scrape (~30 min for 5,900+ commanders)
+python scripts/fetch-edhrec-data.py
+
+# Re-run using cached slugs (faster)
+python scripts/fetch-edhrec-data.py --skip-fetch-slugs
+
+# Custom output path
+python scripts/fetch-edhrec-data.py --output path/to/output.json
+```
+
+### Data Status
+
+- **Available**: ~5,960 commanders on EDHREC
+- **Currently scraped**: 191 (partial)
+- **TODO**: Full scrape + GitHub Actions for weekly automation
+
+## Theme System
+
+The app uses a fantasy MTG-inspired theme defined in `src/styles.css`:
+
+### CSS Variables
+
+- `--color-bg-*`: Background hierarchy (primary, secondary, card, elevated)
+- `--color-text-*`: Text colors (primary, secondary, muted)
+- `--color-gold-*`: Gold accents (bright, primary, dim, dark)
+- `--color-mtg-*`: MTG mana colors (white, blue, black, red, green)
+- `--glow-*`: Glow effects for interactive elements
+- `--shadow-*`: Shadow depths (card, card-hover, elevated, inset)
+
+### Utility Classes
+
+- `.mtg-frame`: Card frame styling with double gold border
+- `.btn-gold`: Gold gradient button with hover/active states
+- `.progress-success/warning/danger`: Gradient progress bar fills
+
+### Fonts
+
+- **Headings**: Cinzel (Google Fonts)
+- **Body**: Source Sans 3 (Google Fonts)

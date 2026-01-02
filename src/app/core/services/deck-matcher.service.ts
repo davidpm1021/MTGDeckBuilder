@@ -32,11 +32,13 @@ export class DeckMatcherService {
    *
    * @param deckCards - Cards required for the commander deck with quantities
    * @param collection - User's collection as a map of normalized name to quantity
+   * @param commanderName - The commander's name to check ownership
    * @returns Match result with percentage, counts, and card lists
    */
   calculateMatch(
     deckCards: readonly DeckCard[],
-    collection: Map<string, number>
+    collection: Map<string, number>,
+    commanderName: string = ''
   ): MatchResult {
     // Total card slots needed (sum of all quantities)
     const total = deckCards.reduce((sum, card) => sum + card.quantity, 0);
@@ -49,8 +51,15 @@ export class DeckMatcherService {
         missing: 0,
         ownedCards: [],
         missingCards: [],
+        hasCommander: false,
       };
     }
+
+    // Check if user owns the commander
+    const normalizedCommanderName = normalizeCardName(commanderName);
+    const hasCommander = normalizedCommanderName
+      ? (collection.get(normalizedCommanderName) ?? 0) > 0
+      : false;
 
     const ownedCards: CardMatchInfo[] = [];
     const missingCards: CardMatchInfo[] = [];
@@ -97,6 +106,7 @@ export class DeckMatcherService {
       missing: missingCount,
       ownedCards,
       missingCards,
+      hasCommander,
     };
   }
 
@@ -121,7 +131,12 @@ export class DeckMatcherService {
         continue;
       }
 
-      const match = this.calculateMatch(commander.cards, collection);
+      const match = this.calculateMatch(commander.cards, collection, commander.name);
+
+      // Apply requireCommander filter
+      if (filters.requireCommander && !match.hasCommander) {
+        continue;
+      }
 
       // Apply minPercent filter
       if (match.percent < filters.minPercent) {

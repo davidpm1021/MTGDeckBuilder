@@ -4,16 +4,17 @@ import { Component, ChangeDetectionStrategy, computed, input } from '@angular/co
   selector: 'app-progress-bar',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="w-full h-4 bg-[var(--color-bg-secondary)] rounded-full overflow-hidden">
+    <div class="w-full h-5 progress-track rounded-full overflow-hidden">
       <div
-        class="h-full transition-all duration-300 rounded-full"
+        class="h-full transition-all duration-500 rounded-full"
         [class]="barColorClass()"
         [style.width.%]="percent()">
       </div>
     </div>
     @if (showLabel()) {
-      <span class="text-sm text-[var(--color-text-secondary)] mt-1">
-        {{ percent() }}%
+      <span class="text-sm mt-1.5 font-medium"
+            [class]="labelColorClass()">
+        {{ percent() }}% buildable
       </span>
     }
   `,
@@ -33,11 +34,22 @@ export class ProgressBarComponent {
   readonly barColorClass = computed(() => {
     const p = this.percent();
     if (p >= 70) {
-      return 'bg-[var(--color-success)]';
+      return 'progress-success';
     } else if (p >= 40) {
-      return 'bg-[var(--color-warning)]';
+      return 'progress-warning';
     } else {
-      return 'bg-[var(--color-danger)]';
+      return 'progress-danger';
+    }
+  });
+
+  readonly labelColorClass = computed(() => {
+    const p = this.percent();
+    if (p >= 70) {
+      return 'text-[var(--color-success)]';
+    } else if (p >= 40) {
+      return 'text-[var(--color-warning)]';
+    } else {
+      return 'text-[var(--color-danger)]';
     }
   });
 }

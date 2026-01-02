@@ -6,24 +6,26 @@ interface ColorButton {
   readonly label: string;
   readonly bgColor: string;
   readonly textColor: string;
+  readonly glowVar: string;
 }
 
 @Component({
   selector: 'app-filters',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="flex flex-wrap items-center gap-4 p-4 bg-[var(--color-bg-secondary)] rounded-lg">
+    <div class="mtg-frame flex flex-wrap items-center gap-5 p-5">
       <!-- Color Filters -->
-      <div class="flex items-center gap-2">
-        <span class="text-sm text-[var(--color-text-secondary)] mr-1">Colors:</span>
+      <div class="flex items-center gap-3">
+        <span class="text-sm text-[var(--color-text-secondary)]">Colors:</span>
         @for (btn of colorButtons; track btn.color) {
           <button
             type="button"
-            class="w-8 h-8 rounded-full border-2 transition-all font-bold text-sm flex items-center justify-center"
-            [class]="isColorSelected(btn.color) ? 'ring-2 ring-[var(--color-accent-gold)] ring-offset-2 ring-offset-[var(--color-bg-secondary)]' : 'opacity-50 hover:opacity-75'"
+            class="w-9 h-9 rounded-full border-2 transition-all font-bold text-sm flex items-center justify-center"
+            [class]="isColorSelected(btn.color) ? 'scale-110' : 'opacity-50 hover:opacity-80 hover:scale-105'"
             [style.background-color]="btn.bgColor"
             [style.color]="btn.textColor"
             [style.border-color]="btn.color === 'B' ? 'var(--color-text-secondary)' : 'transparent'"
+            [style.box-shadow]="isColorSelected(btn.color) ? 'var(' + btn.glowVar + '), 0 0 0 3px var(--color-bg-card)' : 'none'"
             (click)="toggleColor(btn.color)"
             [attr.aria-pressed]="isColorSelected(btn.color)"
             [attr.aria-label]="'Toggle ' + btn.label">
@@ -37,7 +39,7 @@ interface ColorButton {
         <label for="min-percent" class="text-sm text-[var(--color-text-secondary)]">Min %:</label>
         <select
           id="min-percent"
-          class="bg-[var(--color-bg-card)] text-[var(--color-text-primary)] border border-[var(--color-bg-primary)] rounded px-2 py-1 text-sm focus:outline-none focus:border-[var(--color-accent-gold)]"
+          class="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] border-2 border-[var(--color-gold-dark)]/40 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:border-[var(--color-gold-primary)] transition-colors cursor-pointer"
           [value]="minPercent()"
           (change)="onMinPercentChange($event)">
           @for (option of percentOptions; track option.value) {
@@ -51,7 +53,7 @@ interface ColorButton {
         <label for="sort-by" class="text-sm text-[var(--color-text-secondary)]">Sort:</label>
         <select
           id="sort-by"
-          class="bg-[var(--color-bg-card)] text-[var(--color-text-primary)] border border-[var(--color-bg-primary)] rounded px-2 py-1 text-sm focus:outline-none focus:border-[var(--color-accent-gold)]"
+          class="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] border-2 border-[var(--color-gold-dark)]/40 rounded-lg px-3 py-1.5 text-sm focus:outline-none focus:border-[var(--color-gold-primary)] transition-colors cursor-pointer"
           [value]="sortBy()"
           (change)="onSortChange($event)">
           @for (option of sortOptions; track option.value) {
@@ -59,6 +61,16 @@ interface ColorButton {
           }
         </select>
       </div>
+
+      <!-- Require Commander Toggle -->
+      <label class="flex items-center gap-2 cursor-pointer group">
+        <input
+          type="checkbox"
+          [checked]="requireCommander()"
+          (change)="onRequireCommanderChange($event)"
+          class="w-4 h-4 accent-[var(--color-gold-primary)] cursor-pointer" />
+        <span class="text-sm text-[var(--color-text-secondary)] group-hover:text-[var(--color-text-primary)] transition-colors">Own commander</span>
+      </label>
     </div>
   `
 })
@@ -68,13 +80,14 @@ export class FiltersComponent {
   readonly selectedColors = signal<readonly ColorIdentity[]>([]);
   readonly minPercent = signal<number>(0);
   readonly sortBy = signal<SortOption>('percent');
+  readonly requireCommander = signal<boolean>(false);
 
   readonly colorButtons: readonly ColorButton[] = [
-    { color: 'W', label: 'White', bgColor: 'var(--color-mtg-white)', textColor: '#000000' },
-    { color: 'U', label: 'Blue', bgColor: 'var(--color-mtg-blue)', textColor: '#ffffff' },
-    { color: 'B', label: 'Black', bgColor: 'var(--color-mtg-black)', textColor: '#ffffff' },
-    { color: 'R', label: 'Red', bgColor: 'var(--color-mtg-red)', textColor: '#ffffff' },
-    { color: 'G', label: 'Green', bgColor: 'var(--color-mtg-green)', textColor: '#ffffff' }
+    { color: 'W', label: 'White', bgColor: 'var(--color-mtg-white)', textColor: '#000', glowVar: '--glow-mtg-white' },
+    { color: 'U', label: 'Blue', bgColor: 'var(--color-mtg-blue)', textColor: '#fff', glowVar: '--glow-mtg-blue' },
+    { color: 'B', label: 'Black', bgColor: 'var(--color-mtg-black)', textColor: '#fff', glowVar: '--glow-mtg-black' },
+    { color: 'R', label: 'Red', bgColor: 'var(--color-mtg-red)', textColor: '#fff', glowVar: '--glow-mtg-red' },
+    { color: 'G', label: 'Green', bgColor: 'var(--color-mtg-green)', textColor: '#fff', glowVar: '--glow-mtg-green' }
   ];
 
   readonly percentOptions = [
@@ -118,11 +131,18 @@ export class FiltersComponent {
     this.emitFilters();
   }
 
+  onRequireCommanderChange(event: Event): void {
+    const target = event.target as HTMLInputElement;
+    this.requireCommander.set(target.checked);
+    this.emitFilters();
+  }
+
   private emitFilters(): void {
     this.filtersChanged.emit({
       colors: this.selectedColors(),
       minPercent: this.minPercent(),
-      sortBy: this.sortBy()
+      sortBy: this.sortBy(),
+      requireCommander: this.requireCommander()
     });
   }
 }

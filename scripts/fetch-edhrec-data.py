@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """
-Fetch commander data from EDHREC and generate commanders.json
+Fetch ALL commander data from EDHREC and generate commanders.json
 
 Usage:
-    python scripts/fetch-edhrec-data.py [--limit N] [--output PATH]
+    python scripts/fetch-edhrec-data.py [--output PATH] [--delay SECONDS]
 
-Options:
-    --limit N       Number of commanders to fetch (default: 100)
-    --output PATH   Output file path (default: src/assets/data/commanders.json)
+This script:
+1. Fetches all commander slugs by following EDHREC's paginated commander list
+2. Fetches the average deck for each commander
+3. Saves the full deck lists to commanders.json
 """
 
 import argparse
@@ -19,220 +20,9 @@ from pathlib import Path
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError, URLError
 
-# Top commanders by popularity (slug format)
-# Combined from EDHREC year/month/week top 100 lists + classic commanders
-TOP_COMMANDERS = [
-    # Top tier (all-time popular)
-    "the-ur-dragon",
-    "edgar-markov",
-    "atraxa-praetors-voice",
-    "krenko-mob-boss",
-    "kaalia-of-the-vast",
-    "sauron-the-dark-lord",
-    "pantlaza-sun-favored",
-    "yuriko-the-tigers-shadow",
-    "lathril-blade-of-the-elves",
-    "kenrith-the-returned-king",
-    "giada-font-of-hope",
-    "jodah-the-unifier",
-    "nekusar-the-mindrazer",
-    "miirym-sentinel-wyrm",
-    "isshin-two-heavens-as-one",
-    "chatterfang-squirrel-general",
-    "muldrotha-the-gravetide",
-    "arcades-the-strategist",
-    "korvold-fae-cursed-king",
-    "prosper-tome-bound",
-    "omnath-locus-of-creation",
-    "wilhelt-the-rotcleaver",
-    "jetmir-nexus-of-revels",
-    "teysa-karlov",
-    "anim-pakal-thousandth-moon",
-    "sisay-weatherlight-captain",
-    "the-first-sliver",
-    "najeela-the-blade-blossom",
-    "edgar-charmed-groom",
-    "toxrill-the-corrosive",
-    "sythis-harvests-hand",
-    "light-paws-emperors-voice",
-    "magda-brazen-outlaw",
-    "kinnan-bonder-prodigy",
-    "winota-joiner-of-forces",
-    "urza-lord-high-artificer",
-    "kozilek-the-great-distortion",
-    "elesh-norn-grand-cenobite",
-    "animar-soul-of-elements",
-    "zur-the-enchanter",
-    "chulane-teller-of-tales",
-    "marwyn-the-nurturer",
-    "tymna-the-weaver",
-    "thrasios-triton-hero",
-    "talrand-sky-summoner",
-    "yarok-the-desecrated",
-    "kykar-winds-fury",
-    "feather-the-redeemed",
-    "gishath-suns-avatar",
-    "the-gitrog-monster",
-    "elenda-the-dusk-rose",
-    "ghave-guru-of-spores",
-    "breya-etherium-shaper",
-    "karlov-of-the-ghost-council",
-    "niv-mizzet-parun",
-    "aurelia-the-warleader",
-    "ezuri-claw-of-progress",
-    "karador-ghost-chieftain",
-    "sliver-overlord",
-    "grenzo-dungeon-warden",
-    "derevi-empyrial-tactician",
-    "brago-king-eternal",
-    "selvala-heart-of-the-wilds",
-    "rashmi-eternities-crafter",
-    "zacama-primal-calamity",
-    "meren-of-clan-nel-toth",
-    "maelstrom-wanderer",
-    "queen-marchesa",
-    "locust-god",
-    "scarab-god",
-    "purphoros-god-of-the-forge",
-    "krark-the-thumbless",
-    "sakashima-of-a-thousand-faces",
-    "tevesh-szat-doom-of-fools",
-    "vial-smasher-the-fierce",
-    "rograkh-son-of-rohgahh",
-    "ardenn-intrepid-archaeologist",
-    "jeska-thrice-reborn",
-    "kodama-of-the-east-tree",
-    "tormod-the-desecrator",
-    "malcolm-keen-eyed-navigator",
-    "brallin-skyshark-rider",
-    "shabraz-the-skyshark",
-    "kess-dissident-mage",
-    "reyhan-last-of-the-abzan",
-    "ishai-ojutai-dragonspeaker",
-    "ikra-shidiqi-the-usurper",
-    "tana-the-bloodsower",
-    "bruse-tarl-boorish-herder",
-    "silas-renn-seeker-adept",
-    "akiri-line-slinger",
-    "ludevic-necro-alchemist",
-    "ravos-soultender",
-    "kraum-ludevics-opus",
-    "kydele-chosen-of-kruphix",
-    "sidar-kondo-of-jamuraa",
-    "reyav-master-smith",
-    # From EDHREC year/month/week top 100
-    "yshtola-nights-blessed",
-    "the-wise-mothman",
-    "ms-bumbleflower",
-    "ulalek-fused-atrocity",
-    "vivi-ornitier",
-    "teval-the-balanced-scale",
-    "baylen-the-haymaker",
-    "hakbal-of-the-surging-soul",
-    "valgavoth-harrower-of-souls",
-    "esika-god-of-the-tree",
-    "the-necrobloom",
-    "frodo-adventurous-hobbit-sam-loyal-attendant",
-    "mr-house-president-and-ceo",
-    "voja-jaws-of-the-conclave",
-    "aragorn-the-uniter",
-    "zhulodok-void-gorger",
-    "bello-bard-of-the-brambles",
-    "rin-and-seri-inseparable",
-    "caesar-legions-emperor",
-    "shorikai-genesis-engine",
-    "hashaton-scarabs-fist",
-    "flubs-the-fool",
-    "go-shintai-of-lifes-origin",
-    "ghyrson-starn-kelermorph",
-    "obeka-splitter-of-seconds",
-    "krrik-son-of-yawgmoth",
-    "kefka-court-mage",
-    "tom-bombadil",
-    "oloro-ageless-ascetic",
-    "sephiroth-fabled-soldier",
-    "ygra-eater-of-all",
-    "glarb-calamitys-augur",
-    "eriette-of-the-charmed-apple",
-    "atla-palani-nest-tender",
-    "cloud-ex-soldier",
-    "xyris-the-writhing-storm",
-    "fire-lord-azula",
-    "henzie-toolbox-torre",
-    "ezio-auditore-da-firenze",
-    "sidar-jabari-of-zhalfir",
-    "zaxara-the-exemplary",
-    "arabella-abandoned-doll",
-    "atraxa-grand-unifier",
-    "urza-chief-artificer",
-    "captain-nghathrod",
-    "hearthhull-the-worldseed",
-    "urtet-remnant-of-memnarch",
-    "toph-the-first-metalbender",
-    "alela-cunning-conqueror",
-    "zinnia-valleys-voice",
-    "marneus-calgar",
-    "alela-artful-provocateur",
-    "stella-lee-wild-card",
-    "helga-skittish-seer",
-    "galadriel-light-of-valinor",
-    "aesi-tyrant-of-gyre-strait",
-    "aminatou-veil-piercer",
-    "belakor-the-dark-master",
-    "tovolar-dire-overlord",
-    "omnath-locus-of-all",
-    "zurgo-stormrender",
-    "satya-aetherflux-genius",
-    "fynn-the-fangbearer",
-    "kotis-the-fangkeeper",
-    "etali-primal-conqueror",
-    "ureni-of-the-unwritten",
-    "avatar-aang",
-    "iroh-grand-lotus",
-    "jin-sakai-ghost-of-tsushima",
-    "atreus-impulsive-son-kratos-stoic-father",
-    "fire-lord-zuko",
-    "kuja-genome-sorcerer",
-    "sokka-tenacious-tactician",
-    "tidus-yunas-guardian",
-    "terra-herald-of-hope",
-    "aloy-savior-of-meridian",
-    "choco-seeker-of-paradise",
-    "felothar-the-steadfast",
-    "katara-the-fearless",
-    "kilo-apogee-mind",
-    "terra-magical-adept",
-    "ragost-deft-gastronaut",
-    "kratos-god-of-war",
-    "betor-ancestors-voice",
-    "the-wandering-minstrel",
-    "ozai-the-phoenix-king",
-    "tifa-lockhart",
-    "eshki-temurs-roar",
-    "hope-estheim",
-    "aang-at-the-crossroads",
-    "cosmic-spider-man",
-    "eddie-brock",
-    "the-destined-warrior",
-    "lightning-army-of-one",
-    "norman-osborn",
-    "hei-bai-forest-guardian",
-    "high-perfect-morcant",
-    "toph-hardheaded-teacher",
-]
 
-# Color identity mapping (WUBRG order)
-COLOR_MAP = {
-    "W": "W",
-    "U": "U",
-    "B": "B",
-    "R": "R",
-    "G": "G",
-}
-
-def fetch_commander_data(slug: str) -> dict | None:
-    """Fetch average deck data from EDHREC JSON API."""
-    url = f"https://json.edhrec.com/pages/average-decks/{slug}.json"
+def fetch_json(url: str) -> dict | None:
+    """Fetch JSON from a URL with proper headers."""
     headers = {
         "User-Agent": "MTGDeckBuilder/1.0 (Educational Project)",
         "Accept": "application/json",
@@ -241,17 +31,74 @@ def fetch_commander_data(slug: str) -> dict | None:
     try:
         request = Request(url, headers=headers)
         with urlopen(request, timeout=30) as response:
-            data = json.loads(response.read().decode("utf-8"))
-            return data
+            return json.loads(response.read().decode("utf-8"))
     except HTTPError as e:
-        print(f"  HTTP Error {e.code}: {slug}", file=sys.stderr)
+        print(f"  HTTP Error {e.code}: {url}", file=sys.stderr)
         return None
     except URLError as e:
-        print(f"  URL Error: {slug} - {e.reason}", file=sys.stderr)
+        print(f"  URL Error: {url} - {e.reason}", file=sys.stderr)
         return None
     except json.JSONDecodeError as e:
-        print(f"  JSON Error: {slug} - {e}", file=sys.stderr)
+        print(f"  JSON Error: {url} - {e}", file=sys.stderr)
         return None
+
+
+def fetch_all_commander_slugs(delay: float = 0.3) -> list[str]:
+    """Fetch all commander slugs by following EDHREC's pagination."""
+    base_url = "https://json.edhrec.com/pages/"
+    slugs = []
+    seen_slugs = set()
+
+    # Start with the main commanders page
+    next_page = "commanders/year.json"
+    page_num = 0
+
+    while next_page:
+        page_num += 1
+        url = base_url + next_page
+        print(f"[Page {page_num}] Fetching {next_page}...", file=sys.stderr)
+
+        data = fetch_json(url)
+        if not data:
+            break
+
+        page_slugs = 0
+        next_page = None
+
+        # Handle two different response structures:
+        # 1. First page: container.json_dict.cardlists[].cardviews[]
+        # 2. Pagination pages: cardviews[] at top level
+        if "cardviews" in data:
+            # Pagination page structure
+            for card in data.get("cardviews", []):
+                slug = card.get("sanitized")
+                if slug and slug not in seen_slugs:
+                    slugs.append(slug)
+                    seen_slugs.add(slug)
+                    page_slugs += 1
+            next_page = data.get("more")
+        else:
+            # First page structure
+            container = data.get("container", {})
+            json_dict = container.get("json_dict", {})
+            cardlists = json_dict.get("cardlists", [])
+
+            for cardlist in cardlists:
+                for card in cardlist.get("cardviews", []):
+                    slug = card.get("sanitized")
+                    if slug and slug not in seen_slugs:
+                        slugs.append(slug)
+                        seen_slugs.add(slug)
+                        page_slugs += 1
+                if cardlist.get("more"):
+                    next_page = cardlist.get("more")
+
+        print(f"  Found {page_slugs} new commanders (total: {len(slugs)})", file=sys.stderr)
+
+        if next_page:
+            time.sleep(delay)
+
+    return slugs
 
 
 def parse_deck_entry(entry: str) -> tuple[str, int]:
@@ -262,8 +109,14 @@ def parse_deck_entry(entry: str) -> tuple[str, int]:
     return (entry, 1)
 
 
-def extract_commander_info(data: dict, slug: str) -> dict | None:
-    """Extract relevant commander info from EDHREC average deck response."""
+def fetch_commander_deck(slug: str) -> dict | None:
+    """Fetch average deck data for a commander from EDHREC."""
+    url = f"https://json.edhrec.com/pages/average-decks/{slug}.json"
+    data = fetch_json(url)
+
+    if not data:
+        return None
+
     try:
         container = data.get("container", {})
         json_dict = container.get("json_dict", {})
@@ -271,7 +124,6 @@ def extract_commander_info(data: dict, slug: str) -> dict | None:
 
         name = card.get("name", "")
         if not name:
-            print(f"  No name found for {slug}", file=sys.stderr)
             return None
 
         # Extract color identity (convert to WUBRG order)
@@ -283,15 +135,12 @@ def extract_commander_info(data: dict, slug: str) -> dict | None:
         num_decks = card.get("num_decks", 0)
 
         # Extract full deck list from the "deck" array at top level
-        # Format: ["1 Card Name", "29 Mountain", ...]
         deck_entries = data.get("deck", [])
         card_list = []
 
         for entry in deck_entries:
             card_name, quantity = parse_deck_entry(entry)
-            # Skip the commander itself (already in the deck data)
-            if card_name.lower() != name.lower():
-                card_list.append({"name": card_name, "quantity": quantity})
+            card_list.append({"name": card_name, "quantity": quantity})
 
         return {
             "name": name,
@@ -306,48 +155,67 @@ def extract_commander_info(data: dict, slug: str) -> dict | None:
         return None
 
 
-def fetch_all_commanders(slugs: list[str], delay: float = 1.0) -> list[dict]:
-    """Fetch data for multiple commanders with rate limiting."""
+def fetch_all_decks(slugs: list[str], delay: float = 0.3) -> list[dict]:
+    """Fetch deck data for all commanders."""
     commanders = []
     total = len(slugs)
+    failed = 0
 
     for i, slug in enumerate(slugs, 1):
         print(f"[{i}/{total}] Fetching {slug}...", file=sys.stderr)
 
-        data = fetch_commander_data(slug)
-        if data:
-            commander = extract_commander_info(data, slug)
-            if commander:
-                commanders.append(commander)
-                total_cards = sum(c['quantity'] for c in commander['cards'])
-                print(f"  ✓ {commander['name']} ({total_cards} cards in deck)", file=sys.stderr)
-            else:
-                print(f"  ✗ Failed to extract data", file=sys.stderr)
+        commander = fetch_commander_deck(slug)
+        if commander:
+            total_cards = sum(c['quantity'] for c in commander['cards'])
+            commanders.append(commander)
+            print(f"  ✓ {commander['name']} ({total_cards} cards)", file=sys.stderr)
         else:
-            print(f"  ✗ Failed to fetch", file=sys.stderr)
+            failed += 1
+            print(f"  ✗ Failed", file=sys.stderr)
 
-        # Rate limiting - be respectful to EDHREC
         if i < total:
             time.sleep(delay)
 
+    print(f"\nFetched {len(commanders)} commanders ({failed} failed)", file=sys.stderr)
     return commanders
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Fetch EDHREC commander data")
-    parser.add_argument("--limit", type=int, default=100, help="Number of commanders to fetch")
-    parser.add_argument("--output", type=str, default="src/assets/data/commanders.json", help="Output file path")
-    parser.add_argument("--delay", type=float, default=1.0, help="Delay between requests in seconds")
+    parser = argparse.ArgumentParser(description="Fetch ALL EDHREC commander data")
+    parser.add_argument("--output", type=str, default="src/assets/data/commanders.json",
+                        help="Output file path")
+    parser.add_argument("--delay", type=float, default=0.3,
+                        help="Delay between requests in seconds")
+    parser.add_argument("--skip-fetch-slugs", action="store_true",
+                        help="Skip fetching slugs, use cached slugs file")
+    parser.add_argument("--slugs-file", type=str, default="scripts/commander-slugs.json",
+                        help="File to cache commander slugs")
     args = parser.parse_args()
 
-    # Limit the commander list
-    slugs = TOP_COMMANDERS[:args.limit]
+    slugs_path = Path(args.slugs_file)
 
-    print(f"Fetching {len(slugs)} commanders from EDHREC...", file=sys.stderr)
+    # Step 1: Get all commander slugs
+    if args.skip_fetch_slugs and slugs_path.exists():
+        print(f"Loading cached slugs from {slugs_path}...", file=sys.stderr)
+        with open(slugs_path) as f:
+            slugs = json.load(f)
+        print(f"Loaded {len(slugs)} commander slugs", file=sys.stderr)
+    else:
+        print("Fetching all commander slugs from EDHREC...", file=sys.stderr)
+        slugs = fetch_all_commander_slugs(delay=args.delay)
+
+        # Cache slugs for future runs
+        slugs_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(slugs_path, "w") as f:
+            json.dump(slugs, f)
+        print(f"Cached {len(slugs)} slugs to {slugs_path}", file=sys.stderr)
+
+    print(f"\nTotal commanders to fetch: {len(slugs)}", file=sys.stderr)
     print(f"Output: {args.output}", file=sys.stderr)
     print("", file=sys.stderr)
 
-    commanders = fetch_all_commanders(slugs, delay=args.delay)
+    # Step 2: Fetch deck data for each commander
+    commanders = fetch_all_decks(slugs, delay=args.delay)
 
     # Sort by popularity
     commanders.sort(key=lambda c: c["numDecks"], reverse=True)
@@ -368,7 +236,7 @@ def main():
     print("", file=sys.stderr)
     print(f"✓ Saved {len(commanders)} commanders to {args.output}", file=sys.stderr)
 
-    # Also print summary
+    # Summary
     print(f"\nSummary:", file=sys.stderr)
     print(f"  Total commanders: {len(commanders)}", file=sys.stderr)
     total_unique_cards = sum(len(c['cards']) for c in commanders)
@@ -376,7 +244,7 @@ def main():
     avg_deck_size = total_card_slots / len(commanders) if commanders else 0
     print(f"  Total unique card entries: {total_unique_cards}", file=sys.stderr)
     print(f"  Total card slots: {total_card_slots}", file=sys.stderr)
-    print(f"  Average deck size: {avg_deck_size:.1f} cards (excluding commander)", file=sys.stderr)
+    print(f"  Average deck size: {avg_deck_size:.1f} cards", file=sys.stderr)
     if commanders:
         print(f"  Most popular: {commanders[0]['name']} ({commanders[0]['numDecks']:,} decks)", file=sys.stderr)
 

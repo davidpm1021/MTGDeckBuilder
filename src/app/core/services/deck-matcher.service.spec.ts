@@ -249,6 +249,7 @@ describe('DeckMatcherService', () => {
       colors: [],
       minPercent: 0,
       sortBy: 'percent',
+      requireCommander: false,
     };
 
     it('should filter by single color', () => {
@@ -369,6 +370,7 @@ describe('DeckMatcherService', () => {
         colors: ['W'],
         minPercent: 50,
         sortBy: 'percent',
+        requireCommander: false,
       };
 
       const results = service.getFilteredResults(commanders, collection, filters);
@@ -391,7 +393,7 @@ describe('DeckMatcherService', () => {
 
     it('should return empty array when no commanders match filters', () => {
       const collection = new Map<string, number>();
-      const filters: Filters = { colors: [], minPercent: 100, sortBy: 'percent' };
+      const filters: Filters = { colors: [], minPercent: 100, sortBy: 'percent', requireCommander: false };
 
       const results = service.getFilteredResults(commanders, collection, filters);
 
@@ -400,7 +402,7 @@ describe('DeckMatcherService', () => {
 
     it('should return all commanders when no filters applied', () => {
       const collection = new Map<string, number>([['solring', 1]]);
-      const filters: Filters = { colors: [], minPercent: 0, sortBy: 'percent' };
+      const filters: Filters = { colors: [], minPercent: 0, sortBy: 'percent', requireCommander: false };
 
       const results = service.getFilteredResults(commanders, collection, filters);
 
@@ -432,7 +434,7 @@ describe('DeckMatcherService', () => {
     it('should show all commanders when all 5 colors are selected', () => {
       const collection = new Map<string, number>([['solring', 1]]);
       // All 5 colors selected = show all (same as no filter)
-      const filters: Filters = { colors: ['W', 'U', 'B', 'R', 'G'], minPercent: 0, sortBy: 'percent' };
+      const filters: Filters = { colors: ['W', 'U', 'B', 'R', 'G'], minPercent: 0, sortBy: 'percent', requireCommander: false };
 
       const results = service.getFilteredResults(commanders, collection, filters);
 
@@ -443,12 +445,48 @@ describe('DeckMatcherService', () => {
     it('should filter when only some colors are selected', () => {
       const collection = new Map<string, number>([['solring', 1]]);
       // Only WUBG - should only match Atraxa
-      const filters: Filters = { colors: ['W', 'U', 'B', 'G'], minPercent: 0, sortBy: 'percent' };
+      const filters: Filters = { colors: ['W', 'U', 'B', 'G'], minPercent: 0, sortBy: 'percent', requireCommander: false };
 
       const results = service.getFilteredResults(commanders, collection, filters);
 
       expect(results.length).toBe(1);
       expect(results[0].commander.name).toBe('Atraxa');
+    });
+
+    it('should filter by requireCommander when true', () => {
+      const collection = new Map<string, number>([
+        ['solring', 1],
+        ['atraxa', 1], // Own Atraxa
+        ['teysa', 1],  // Own Teysa
+      ]);
+      const filters: Filters = { ...defaultFilters, requireCommander: true };
+
+      const results = service.getFilteredResults(commanders, collection, filters);
+
+      // Should only include Atraxa and Teysa (commanders we own)
+      expect(results.length).toBe(2);
+      const names = results.map(r => r.commander.name);
+      expect(names).toContain('Atraxa');
+      expect(names).toContain('Teysa');
+      expect(names).not.toContain('Edgar');
+      expect(names).not.toContain('Urza');
+      expect(names).not.toContain('Omnath');
+    });
+
+    it('should include hasCommander in match result', () => {
+      const collection = new Map<string, number>([
+        ['solring', 1],
+        ['atraxa', 1],
+      ]);
+      const filters: Filters = { ...defaultFilters, requireCommander: false };
+
+      const results = service.getFilteredResults(commanders, collection, filters);
+
+      const atraxaResult = results.find(r => r.commander.name === 'Atraxa');
+      const edzarResult = results.find(r => r.commander.name === 'Edgar');
+
+      expect(atraxaResult!.match.hasCommander).toBe(true);
+      expect(edzarResult!.match.hasCommander).toBe(false);
     });
   });
 });

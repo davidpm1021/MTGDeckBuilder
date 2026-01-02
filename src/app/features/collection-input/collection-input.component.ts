@@ -8,29 +8,38 @@ type InputMode = 'paste' | 'upload' | 'url';
   selector: 'app-collection-input',
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div class="bg-[var(--color-bg-secondary)] rounded-lg p-4">
+    <div class="mtg-frame p-5">
       <!-- Tab Selector -->
-      <div class="flex border-b border-[var(--color-bg-primary)] mb-4">
+      <div class="flex border-b border-[var(--color-gold-dark)]/30 mb-5">
         <button
           type="button"
-          class="px-4 py-2 text-sm font-medium transition-colors"
-          [class]="activeMode() === 'paste' ? 'text-[var(--color-accent-gold)] border-b-2 border-[var(--color-accent-gold)]' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'"
+          class="px-4 py-2.5 text-sm font-medium transition-all relative"
+          [class]="activeMode() === 'paste' ? 'text-[var(--color-gold-bright)]' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'"
           (click)="setMode('paste')">
           Paste Collection
+          @if (activeMode() === 'paste') {
+            <span class="absolute bottom-0 left-0 right-0 h-[2px] bg-[var(--color-gold-primary)]" style="box-shadow: 0 0 8px var(--color-gold-primary);"></span>
+          }
         </button>
         <button
           type="button"
-          class="px-4 py-2 text-sm font-medium transition-colors"
-          [class]="activeMode() === 'upload' ? 'text-[var(--color-accent-gold)] border-b-2 border-[var(--color-accent-gold)]' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'"
+          class="px-4 py-2.5 text-sm font-medium transition-all relative"
+          [class]="activeMode() === 'upload' ? 'text-[var(--color-gold-bright)]' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'"
           (click)="setMode('upload')">
           Upload CSV
+          @if (activeMode() === 'upload') {
+            <span class="absolute bottom-0 left-0 right-0 h-[2px] bg-[var(--color-gold-primary)]" style="box-shadow: 0 0 8px var(--color-gold-primary);"></span>
+          }
         </button>
         <button
           type="button"
-          class="px-4 py-2 text-sm font-medium transition-colors"
-          [class]="activeMode() === 'url' ? 'text-[var(--color-accent-gold)] border-b-2 border-[var(--color-accent-gold)]' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'"
+          class="px-4 py-2.5 text-sm font-medium transition-all relative"
+          [class]="activeMode() === 'url' ? 'text-[var(--color-gold-bright)]' : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]'"
           (click)="setMode('url')">
           Archidekt URL
+          @if (activeMode() === 'url') {
+            <span class="absolute bottom-0 left-0 right-0 h-[2px] bg-[var(--color-gold-primary)]" style="box-shadow: 0 0 8px var(--color-gold-primary);"></span>
+          }
         </button>
       </div>
 
@@ -38,14 +47,15 @@ type InputMode = 'paste' | 'upload' | 'url';
       @if (activeMode() === 'paste') {
         <div>
           <textarea
-            class="w-full h-48 bg-[var(--color-bg-card)] text-[var(--color-text-primary)] border border-[var(--color-bg-primary)] rounded-lg p-3 text-sm font-mono resize-y focus:outline-none focus:border-[var(--color-accent-gold)]"
+            class="w-full h-48 bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] border-2 border-[var(--color-gold-dark)]/40 rounded-lg p-3 text-sm font-mono resize-y focus:outline-none focus:border-[var(--color-gold-primary)] transition-colors"
+            style="box-shadow: var(--shadow-inset);"
             [placeholder]="placeholderText"
             [value]="textContent()"
             (input)="onTextInput($event)">
           </textarea>
           <button
             type="button"
-            class="mt-3 px-4 py-2 bg-[var(--color-accent-gold)] text-[var(--color-bg-primary)] rounded font-medium text-sm hover:bg-[var(--color-accent-gold-dim)] transition-colors disabled:opacity-50"
+            class="btn-gold mt-3"
             [disabled]="!textContent().trim()"
             (click)="parseTextInput()">
             Parse Collection
@@ -59,8 +69,9 @@ type InputMode = 'paste' | 'upload' | 'url';
           role="button"
           tabindex="0"
           aria-label="Upload CSV file - click or press Enter to browse"
-          class="border-2 border-dashed rounded-lg p-8 text-center transition-colors cursor-pointer focus:outline-none focus:border-[var(--color-accent-gold)]"
-          [class]="isDragging() ? 'border-[var(--color-accent-gold)] bg-[var(--color-bg-card)]' : 'border-[var(--color-bg-primary)] hover:border-[var(--color-text-secondary)]'"
+          class="border-2 border-dashed rounded-lg p-8 text-center transition-all cursor-pointer focus:outline-none"
+          [class]="isDragging() ? 'border-[var(--color-gold-bright)] bg-[var(--color-bg-primary)]' : 'border-[var(--color-gold-dark)]/50 hover:border-[var(--color-gold-primary)]'"
+          [style.boxShadow]="isDragging() ? 'var(--glow-gold)' : 'none'"
           (dragover)="onDragOver($event)"
           (dragleave)="onDragLeave()"
           (drop)="onDrop($event)"
@@ -74,23 +85,23 @@ type InputMode = 'paste' | 'upload' | 'url';
             class="hidden"
             (change)="onFileSelected($event)" />
           <div class="text-[var(--color-text-secondary)]">
-            <svg class="mx-auto h-12 w-12 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="mx-auto h-12 w-12 mb-3 text-[var(--color-gold-dim)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
             </svg>
             <p class="text-sm">
               @if (isDragging()) {
-                Drop your file here
+                <span class="text-[var(--color-gold-bright)]">Drop your file here</span>
               } @else {
                 Drag and drop a CSV file, or click to browse
               }
             </p>
-            <p class="text-xs mt-2 text-[var(--color-text-secondary)]">
+            <p class="text-xs mt-2 text-[var(--color-text-muted)]">
               Supports .csv and .txt files
             </p>
           </div>
         </div>
         @if (fileName()) {
-          <p class="mt-2 text-sm text-[var(--color-text-secondary)]">
+          <p class="mt-3 text-sm text-[var(--color-gold-primary)]">
             Selected: {{ fileName() }}
           </p>
         }
@@ -99,17 +110,18 @@ type InputMode = 'paste' | 'upload' | 'url';
       <!-- URL Mode -->
       @if (activeMode() === 'url') {
         <div>
-          <div class="flex gap-2">
+          <div class="flex gap-3">
             <input
               type="url"
-              class="flex-1 bg-[var(--color-bg-card)] text-[var(--color-text-primary)] border border-[var(--color-bg-primary)] rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[var(--color-accent-gold)]"
+              class="flex-1 bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] border-2 border-[var(--color-gold-dark)]/40 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-[var(--color-gold-primary)] transition-colors"
+              style="box-shadow: var(--shadow-inset);"
               placeholder="https://archidekt.com/decks/123456"
               [value]="urlInput()"
               (input)="onUrlInput($event)"
               (keydown.enter)="fetchArchidektDeck()" />
             <button
               type="button"
-              class="px-4 py-2 bg-[var(--color-accent-gold)] text-[var(--color-bg-primary)] rounded font-medium text-sm hover:bg-[var(--color-accent-gold-dim)] transition-colors disabled:opacity-50"
+              class="btn-gold"
               [disabled]="!isValidUrl() || urlLoading()"
               (click)="fetchArchidektDeck()">
               @if (urlLoading()) {
@@ -126,19 +138,19 @@ type InputMode = 'paste' | 'upload' | 'url';
             </button>
           </div>
 
-          <p class="mt-3 text-xs text-[var(--color-text-secondary)]">
+          <p class="mt-3 text-xs text-[var(--color-text-muted)]">
             Tip: Create a public deck in Archidekt containing your collection cards, then paste the URL here.
           </p>
 
           @if (urlError()) {
-            <div class="mt-3 p-3 bg-red-900/30 border border-red-500/50 rounded-lg">
-              <p class="text-sm text-red-400">{{ urlError() }}</p>
+            <div class="mt-3 p-3 bg-[var(--color-danger)]/10 border border-[var(--color-danger)]/40 rounded-lg">
+              <p class="text-sm text-[var(--color-danger)]">{{ urlError() }}</p>
             </div>
           }
 
           @if (urlSuccess()) {
-            <div class="mt-3 p-3 bg-green-900/30 border border-green-500/50 rounded-lg">
-              <p class="text-sm text-green-400">{{ urlSuccess() }}</p>
+            <div class="mt-3 p-3 bg-[var(--color-success)]/10 border border-[var(--color-success)]/40 rounded-lg">
+              <p class="text-sm text-[var(--color-success)]">{{ urlSuccess() }}</p>
             </div>
           }
         </div>
@@ -146,8 +158,8 @@ type InputMode = 'paste' | 'upload' | 'url';
 
       <!-- Stats Bar -->
       @if (uniqueCardCount() > 0) {
-        <div class="mt-4 pt-4 border-t border-[var(--color-bg-primary)]">
-          <p class="text-sm text-[var(--color-accent-gold)] font-medium">
+        <div class="mt-5 pt-4 border-t border-[var(--color-gold-dark)]/30">
+          <p class="text-sm font-medium" style="color: var(--color-gold-bright); text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);">
             {{ uniqueCardCount() }} unique cards parsed
           </p>
         </div>
