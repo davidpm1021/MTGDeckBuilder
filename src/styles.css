@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+/* MTG-inspired dark theme */
+:root {
+  --color-bg-primary: #1a1a2e;
+  --color-bg-secondary: #16213e;
+  --color-bg-card: #0f0f23;
+  --color-text-primary: #e8e8e8;
+  --color-text-secondary: #a0a0a0;
+  --color-accent-gold: #d4af37;
+  --color-accent-gold-dim: #b8960c;
+  --color-success: #22c55e;
+  --color-warning: #eab308;
+  --color-danger: #ef4444;
+
+  /* MTG Color Identity */
+  --color-mtg-white: #f9faf4;
+  --color-mtg-blue: #0e68ab;
+  --color-mtg-black: #150b00;
+  --color-mtg-red: #d3202a;
+  --color-mtg-green: #00733e;
+}
+
+body {
+  @apply bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] min-h-screen;
+  font-family: system-ui, -apple-system, sans-serif;
+}
