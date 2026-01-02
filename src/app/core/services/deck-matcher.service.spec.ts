@@ -366,15 +366,26 @@ describe('DeckMatcherService', () => {
       expect(teysaResult!.match.missingCards).toEqual([]);
     });
 
-    it('should handle commanders with no matching colors', () => {
+    it('should show all commanders when all 5 colors are selected', () => {
       const collection = new Map<string, number>([['solring', 1]]);
-      // Filter for a color combo that no commander has exactly
+      // All 5 colors selected = show all (same as no filter)
       const filters: Filters = { colors: ['W', 'U', 'B', 'R', 'G'], minPercent: 0, sortBy: 'percent' };
 
       const results = service.getFilteredResults(commanders, collection, filters);
 
-      // No commander has all 5 colors
-      expect(results.length).toBe(0);
+      // All 5 colors selected means "show all"
+      expect(results.length).toBe(commanders.length);
+    });
+
+    it('should filter when only some colors are selected', () => {
+      const collection = new Map<string, number>([['solring', 1]]);
+      // Only WUBG - should only match Atraxa
+      const filters: Filters = { colors: ['W', 'U', 'B', 'G'], minPercent: 0, sortBy: 'percent' };
+
+      const results = service.getFilteredResults(commanders, collection, filters);
+
+      expect(results.length).toBe(1);
+      expect(results[0].commander.name).toBe('Atraxa');
     });
   });
 });

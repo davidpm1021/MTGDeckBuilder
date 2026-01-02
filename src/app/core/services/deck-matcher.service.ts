@@ -112,16 +112,18 @@ export class DeckMatcherService {
 
   /**
    * Checks if a commander's color identity contains all selected colors.
-   * If no colors are selected, all commanders match.
+   * If no colors are selected OR all 5 colors are selected, all commanders match.
    */
   private matchesColorFilter(
     commanderColors: readonly ColorIdentity[],
     filterColors: readonly ColorIdentity[]
   ): boolean {
-    if (filterColors.length === 0) {
+    // No filter or all colors selected = show all
+    if (filterColors.length === 0 || filterColors.length === 5) {
       return true;
     }
 
+    // Commander must contain ALL selected colors
     for (const color of filterColors) {
       if (!commanderColors.includes(color)) {
         return false;
