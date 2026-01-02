@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {
   Commander,
   ColorIdentity,
+  DeckCard,
+  CardMatchInfo,
   Filters,
   MatchResult,
   MatchedCommander,
@@ -25,16 +27,19 @@ function normalizeCardName(name: string): string {
 export class DeckMatcherService {
   /**
    * Calculates how well a user's collection matches a commander's decklist.
+   * Now supports quantities - if a deck needs 10 Islands and you have 5,
+   * it counts as 5 owned and 5 missing.
    *
-   * @param deckCards - Cards required for the commander deck
+   * @param deckCards - Cards required for the commander deck with quantities
    * @param collection - User's collection as a map of normalized name to quantity
    * @returns Match result with percentage, counts, and card lists
    */
   calculateMatch(
-    deckCards: readonly string[],
+    deckCards: readonly DeckCard[],
     collection: Map<string, number>
   ): MatchResult {
-    const total = deckCards.length;
+    // Total card slots needed (sum of all quantities)
+    const total = deckCards.reduce((sum, card) => sum + card.quantity, 0);
 
     if (total === 0) {
       return {
@@ -47,29 +52,49 @@ export class DeckMatcherService {
       };
     }
 
-    const ownedCards: string[] = [];
-    const missingCards: string[] = [];
+    const ownedCards: CardMatchInfo[] = [];
+    const missingCards: CardMatchInfo[] = [];
+    let ownedCount = 0;
+    let missingCount = 0;
 
-    for (const card of deckCards) {
-      const normalizedName = normalizeCardName(card);
-      const quantity = collection.get(normalizedName) ?? 0;
+    for (const deckCard of deckCards) {
+      const normalizedName = normalizeCardName(deckCard.name);
+      const collectionQty = collection.get(normalizedName) ?? 0;
+      const requiredQty = deckCard.quantity;
 
-      if (quantity > 0) {
-        ownedCards.push(card);
+      // How many of this card do we actually have for the deck?
+      const ownedQty = Math.min(collectionQty, requiredQty);
+      const missingQty = requiredQty - ownedQty;
+
+      ownedCount += ownedQty;
+      missingCount += missingQty;
+
+      const cardInfo: CardMatchInfo = {
+        name: deckCard.name,
+        required: requiredQty,
+        owned: ownedQty,
+      };
+
+      if (ownedQty >= requiredQty) {
+        // Fully owned
+        ownedCards.push(cardInfo);
+      } else if (ownedQty > 0) {
+        // Partially owned - show in both lists
+        ownedCards.push(cardInfo);
+        missingCards.push(cardInfo);
       } else {
-        missingCards.push(card);
+        // Completely missing
+        missingCards.push(cardInfo);
       }
     }
 
-    const owned = ownedCards.length;
-    const missing = missingCards.length;
-    const percent = Math.round((owned / total) * 100);
+    const percent = Math.round((ownedCount / total) * 100);
 
     return {
       percent,
-      owned,
+      owned: ownedCount,
       total,
-      missing,
+      missing: missingCount,
       ownedCards,
       missingCards,
     };

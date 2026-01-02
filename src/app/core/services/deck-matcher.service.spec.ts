@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { DeckMatcherService } from './deck-matcher.service';
-import { Commander, Filters } from '../models/types';
+import { Commander, DeckCard, Filters } from '../models/types';
 
 describe('DeckMatcherService', () => {
   let service: DeckMatcherService;
@@ -14,9 +14,16 @@ describe('DeckMatcherService', () => {
     expect(service).toBeTruthy();
   });
 
+  /** Helper to create deck cards with quantity */
+  const card = (name: string, quantity = 1): DeckCard => ({ name, quantity });
+
   describe('calculateMatch', () => {
     it('should calculate 100% match when all cards are owned', () => {
-      const deckCards = ['Sol Ring', 'Arcane Signet', 'Command Tower'];
+      const deckCards: DeckCard[] = [
+        card('Sol Ring'),
+        card('Arcane Signet'),
+        card('Command Tower'),
+      ];
       const collection = new Map<string, number>([
         ['solring', 1],
         ['arcanesignet', 2],
@@ -29,7 +36,7 @@ describe('DeckMatcherService', () => {
       expect(result.owned).toBe(3);
       expect(result.total).toBe(3);
       expect(result.missing).toBe(0);
-      expect(result.ownedCards).toEqual([
+      expect(result.ownedCards.map(c => c.name)).toEqual([
         'Sol Ring',
         'Arcane Signet',
         'Command Tower',
@@ -38,7 +45,12 @@ describe('DeckMatcherService', () => {
     });
 
     it('should calculate 50% match correctly', () => {
-      const deckCards = ['Sol Ring', 'Arcane Signet', 'Command Tower', 'Mana Crypt'];
+      const deckCards: DeckCard[] = [
+        card('Sol Ring'),
+        card('Arcane Signet'),
+        card('Command Tower'),
+        card('Mana Crypt'),
+      ];
       const collection = new Map<string, number>([
         ['solring', 1],
         ['commandtower', 1],
@@ -50,12 +62,16 @@ describe('DeckMatcherService', () => {
       expect(result.owned).toBe(2);
       expect(result.total).toBe(4);
       expect(result.missing).toBe(2);
-      expect(result.ownedCards).toEqual(['Sol Ring', 'Command Tower']);
-      expect(result.missingCards).toEqual(['Arcane Signet', 'Mana Crypt']);
+      expect(result.ownedCards.map(c => c.name)).toEqual(['Sol Ring', 'Command Tower']);
+      expect(result.missingCards.map(c => c.name)).toEqual(['Arcane Signet', 'Mana Crypt']);
     });
 
     it('should calculate 0% match when no cards are owned', () => {
-      const deckCards = ['Sol Ring', 'Arcane Signet', 'Command Tower'];
+      const deckCards: DeckCard[] = [
+        card('Sol Ring'),
+        card('Arcane Signet'),
+        card('Command Tower'),
+      ];
       const collection = new Map<string, number>();
 
       const result = service.calculateMatch(deckCards, collection);
@@ -65,7 +81,7 @@ describe('DeckMatcherService', () => {
       expect(result.total).toBe(3);
       expect(result.missing).toBe(3);
       expect(result.ownedCards).toEqual([]);
-      expect(result.missingCards).toEqual([
+      expect(result.missingCards.map(c => c.name)).toEqual([
         'Sol Ring',
         'Arcane Signet',
         'Command Tower',
@@ -73,7 +89,7 @@ describe('DeckMatcherService', () => {
     });
 
     it('should handle empty collection', () => {
-      const deckCards = ['Sol Ring', 'Mana Crypt'];
+      const deckCards: DeckCard[] = [card('Sol Ring'), card('Mana Crypt')];
       const collection = new Map<string, number>();
 
       const result = service.calculateMatch(deckCards, collection);
@@ -84,7 +100,7 @@ describe('DeckMatcherService', () => {
     });
 
     it('should handle empty deck cards', () => {
-      const deckCards: string[] = [];
+      const deckCards: DeckCard[] = [];
       const collection = new Map<string, number>([['solring', 1]]);
 
       const result = service.calculateMatch(deckCards, collection);
@@ -96,7 +112,7 @@ describe('DeckMatcherService', () => {
     });
 
     it('should handle split cards correctly', () => {
-      const deckCards = ['Fire // Ice', 'Wear // Tear'];
+      const deckCards: DeckCard[] = [card('Fire // Ice'), card('Wear // Tear')];
       const collection = new Map<string, number>([
         ['fireice', 1],
         ['weartear', 1],
@@ -106,11 +122,14 @@ describe('DeckMatcherService', () => {
 
       expect(result.percent).toBe(100);
       expect(result.owned).toBe(2);
-      expect(result.ownedCards).toEqual(['Fire // Ice', 'Wear // Tear']);
+      expect(result.ownedCards.map(c => c.name)).toEqual(['Fire // Ice', 'Wear // Tear']);
     });
 
     it('should normalize card names with special characters', () => {
-      const deckCards = ["Frodo, Sauron's Bane", 'Ral, Storm Conduit'];
+      const deckCards: DeckCard[] = [
+        card("Frodo, Sauron's Bane"),
+        card('Ral, Storm Conduit'),
+      ];
       const collection = new Map<string, number>([
         ['frodosauronsbane', 1],
         ['ralstormconduit', 1],
@@ -123,7 +142,7 @@ describe('DeckMatcherService', () => {
     });
 
     it('should be case insensitive', () => {
-      const deckCards = ['SOL RING', 'Arcane Signet'];
+      const deckCards: DeckCard[] = [card('SOL RING'), card('Arcane Signet')];
       const collection = new Map<string, number>([
         ['solring', 1],
         ['arcanesignet', 1],
@@ -135,13 +154,57 @@ describe('DeckMatcherService', () => {
     });
 
     it('should round percentage correctly', () => {
-      const deckCards = ['Card 1', 'Card 2', 'Card 3'];
+      const deckCards: DeckCard[] = [card('Card 1'), card('Card 2'), card('Card 3')];
       const collection = new Map<string, number>([['card1', 1]]);
 
       const result = service.calculateMatch(deckCards, collection);
 
       // 1/3 = 33.33... should round to 33
       expect(result.percent).toBe(33);
+    });
+
+    it('should handle quantities - partial match for basic lands', () => {
+      const deckCards: DeckCard[] = [
+        card('Island', 10),
+        card('Sol Ring'),
+      ];
+      const collection = new Map<string, number>([
+        ['island', 5],
+        ['solring', 1],
+      ]);
+
+      const result = service.calculateMatch(deckCards, collection);
+
+      // 5 Islands + 1 Sol Ring = 6 owned out of 11 total = 55%
+      expect(result.percent).toBe(55);
+      expect(result.owned).toBe(6);
+      expect(result.total).toBe(11);
+      expect(result.missing).toBe(5);
+    });
+
+    it('should show partial cards in both owned and missing lists', () => {
+      const deckCards: DeckCard[] = [card('Island', 10)];
+      const collection = new Map<string, number>([['island', 5]]);
+
+      const result = service.calculateMatch(deckCards, collection);
+
+      // Island is partial: 5 owned, 5 missing
+      expect(result.ownedCards.length).toBe(1);
+      expect(result.missingCards.length).toBe(1);
+      expect(result.ownedCards[0]).toEqual({ name: 'Island', required: 10, owned: 5 });
+      expect(result.missingCards[0]).toEqual({ name: 'Island', required: 10, owned: 5 });
+    });
+
+    it('should count fully owned multi-quantity cards correctly', () => {
+      const deckCards: DeckCard[] = [card('Island', 10)];
+      const collection = new Map<string, number>([['island', 15]]);
+
+      const result = service.calculateMatch(deckCards, collection);
+
+      expect(result.percent).toBe(100);
+      expect(result.owned).toBe(10);
+      expect(result.missing).toBe(0);
+      expect(result.ownedCards[0]).toEqual({ name: 'Island', required: 10, owned: 10 });
     });
   });
 
@@ -150,13 +213,13 @@ describe('DeckMatcherService', () => {
       name: string,
       colors: readonly ('W' | 'U' | 'B' | 'R' | 'G')[],
       numDecks: number,
-      cards: readonly string[]
+      cardNames: readonly string[]
     ): Commander => ({
       name,
       slug: name.toLowerCase().replace(/[^a-z0-9]/g, '-'),
       colorIdentity: colors,
       numDecks,
-      cards,
+      cards: cardNames.map(n => ({ name: n, quantity: 1 })),
     });
 
     const commanders: Commander[] = [
@@ -359,7 +422,7 @@ describe('DeckMatcherService', () => {
       expect(teysaResult!.match.owned).toBe(2);
       expect(teysaResult!.match.total).toBe(2);
       expect(teysaResult!.match.missing).toBe(0);
-      expect(teysaResult!.match.ownedCards).toEqual([
+      expect(teysaResult!.match.ownedCards.map(c => c.name)).toEqual([
         'Sol Ring',
         'Arcane Signet',
       ]);

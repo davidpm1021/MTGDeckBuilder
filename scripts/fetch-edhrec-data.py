@@ -20,8 +20,9 @@ from urllib.request import urlopen, Request
 from urllib.error import HTTPError, URLError
 
 # Top commanders by popularity (slug format)
-# This list can be expanded or fetched dynamically
+# Combined from EDHREC year/month/week top 100 lists + classic commanders
 TOP_COMMANDERS = [
+    # Top tier (all-time popular)
     "the-ur-dragon",
     "edgar-markov",
     "atraxa-praetors-voice",
@@ -45,7 +46,6 @@ TOP_COMMANDERS = [
     "omnath-locus-of-creation",
     "wilhelt-the-rotcleaver",
     "jetmir-nexus-of-revels",
-    "ur-dragon",
     "teysa-karlov",
     "anim-pakal-thousandth-moon",
     "sisay-weatherlight-captain",
@@ -119,8 +119,106 @@ TOP_COMMANDERS = [
     "kraum-ludevics-opus",
     "kydele-chosen-of-kruphix",
     "sidar-kondo-of-jamuraa",
-    "vial-smasher-the-fierce",
     "reyav-master-smith",
+    # From EDHREC year/month/week top 100
+    "yshtola-nights-blessed",
+    "the-wise-mothman",
+    "ms-bumbleflower",
+    "ulalek-fused-atrocity",
+    "vivi-ornitier",
+    "teval-the-balanced-scale",
+    "baylen-the-haymaker",
+    "hakbal-of-the-surging-soul",
+    "valgavoth-harrower-of-souls",
+    "esika-god-of-the-tree",
+    "the-necrobloom",
+    "frodo-adventurous-hobbit-sam-loyal-attendant",
+    "mr-house-president-and-ceo",
+    "voja-jaws-of-the-conclave",
+    "aragorn-the-uniter",
+    "zhulodok-void-gorger",
+    "bello-bard-of-the-brambles",
+    "rin-and-seri-inseparable",
+    "caesar-legions-emperor",
+    "shorikai-genesis-engine",
+    "hashaton-scarabs-fist",
+    "flubs-the-fool",
+    "go-shintai-of-lifes-origin",
+    "ghyrson-starn-kelermorph",
+    "obeka-splitter-of-seconds",
+    "krrik-son-of-yawgmoth",
+    "kefka-court-mage",
+    "tom-bombadil",
+    "oloro-ageless-ascetic",
+    "sephiroth-fabled-soldier",
+    "ygra-eater-of-all",
+    "glarb-calamitys-augur",
+    "eriette-of-the-charmed-apple",
+    "atla-palani-nest-tender",
+    "cloud-ex-soldier",
+    "xyris-the-writhing-storm",
+    "fire-lord-azula",
+    "henzie-toolbox-torre",
+    "ezio-auditore-da-firenze",
+    "sidar-jabari-of-zhalfir",
+    "zaxara-the-exemplary",
+    "arabella-abandoned-doll",
+    "atraxa-grand-unifier",
+    "urza-chief-artificer",
+    "captain-nghathrod",
+    "hearthhull-the-worldseed",
+    "urtet-remnant-of-memnarch",
+    "toph-the-first-metalbender",
+    "alela-cunning-conqueror",
+    "zinnia-valleys-voice",
+    "marneus-calgar",
+    "alela-artful-provocateur",
+    "stella-lee-wild-card",
+    "helga-skittish-seer",
+    "galadriel-light-of-valinor",
+    "aesi-tyrant-of-gyre-strait",
+    "aminatou-veil-piercer",
+    "belakor-the-dark-master",
+    "tovolar-dire-overlord",
+    "omnath-locus-of-all",
+    "zurgo-stormrender",
+    "satya-aetherflux-genius",
+    "fynn-the-fangbearer",
+    "kotis-the-fangkeeper",
+    "etali-primal-conqueror",
+    "ureni-of-the-unwritten",
+    "avatar-aang",
+    "iroh-grand-lotus",
+    "jin-sakai-ghost-of-tsushima",
+    "atreus-impulsive-son-kratos-stoic-father",
+    "fire-lord-zuko",
+    "kuja-genome-sorcerer",
+    "sokka-tenacious-tactician",
+    "tidus-yunas-guardian",
+    "terra-herald-of-hope",
+    "aloy-savior-of-meridian",
+    "choco-seeker-of-paradise",
+    "felothar-the-steadfast",
+    "katara-the-fearless",
+    "kilo-apogee-mind",
+    "terra-magical-adept",
+    "ragost-deft-gastronaut",
+    "kratos-god-of-war",
+    "betor-ancestors-voice",
+    "the-wandering-minstrel",
+    "ozai-the-phoenix-king",
+    "tifa-lockhart",
+    "eshki-temurs-roar",
+    "hope-estheim",
+    "aang-at-the-crossroads",
+    "cosmic-spider-man",
+    "eddie-brock",
+    "the-destined-warrior",
+    "lightning-army-of-one",
+    "norman-osborn",
+    "hei-bai-forest-guardian",
+    "high-perfect-morcant",
+    "toph-hardheaded-teacher",
 ]
 
 # Color identity mapping (WUBRG order)
@@ -133,8 +231,8 @@ COLOR_MAP = {
 }
 
 def fetch_commander_data(slug: str) -> dict | None:
-    """Fetch commander data from EDHREC JSON API."""
-    url = f"https://json.edhrec.com/pages/commanders/{slug}.json"
+    """Fetch average deck data from EDHREC JSON API."""
+    url = f"https://json.edhrec.com/pages/average-decks/{slug}.json"
     headers = {
         "User-Agent": "MTGDeckBuilder/1.0 (Educational Project)",
         "Accept": "application/json",
@@ -156,8 +254,16 @@ def fetch_commander_data(slug: str) -> dict | None:
         return None
 
 
+def parse_deck_entry(entry: str) -> tuple[str, int]:
+    """Parse a deck entry like '1 Card Name' or '29 Mountain' into (name, quantity)."""
+    parts = entry.split(" ", 1)
+    if len(parts) == 2 and parts[0].isdigit():
+        return (parts[1], int(parts[0]))
+    return (entry, 1)
+
+
 def extract_commander_info(data: dict, slug: str) -> dict | None:
-    """Extract relevant commander info from EDHREC response."""
+    """Extract relevant commander info from EDHREC average deck response."""
     try:
         container = data.get("container", {})
         json_dict = container.get("json_dict", {})
@@ -176,27 +282,23 @@ def extract_commander_info(data: dict, slug: str) -> dict | None:
         # Get deck count
         num_decks = card.get("num_decks", 0)
 
-        # Extract cards from cardlists
-        cardlists = json_dict.get("cardlists", [])
-        cards = set()
+        # Extract full deck list from the "deck" array at top level
+        # Format: ["1 Card Name", "29 Mountain", ...]
+        deck_entries = data.get("deck", [])
+        card_list = []
 
-        for cardlist in cardlists:
-            cardlist_cards = cardlist.get("cardviews", [])
-            for card_view in cardlist_cards:
-                card_name = card_view.get("name", "")
-                if card_name:
-                    cards.add(card_name)
-
-        # Limit to top cards (most commonly included)
-        # Sort by inclusion rate if available, otherwise just take first N
-        card_list = list(cards)[:99]  # 99 cards + commander = 100
+        for entry in deck_entries:
+            card_name, quantity = parse_deck_entry(entry)
+            # Skip the commander itself (already in the deck data)
+            if card_name.lower() != name.lower():
+                card_list.append({"name": card_name, "quantity": quantity})
 
         return {
             "name": name,
             "slug": slug,
             "colorIdentity": color_identity,
             "numDecks": num_decks,
-            "cards": sorted(card_list),
+            "cards": card_list,
         }
 
     except Exception as e:
@@ -217,7 +319,8 @@ def fetch_all_commanders(slugs: list[str], delay: float = 1.0) -> list[dict]:
             commander = extract_commander_info(data, slug)
             if commander:
                 commanders.append(commander)
-                print(f"  ✓ {commander['name']} ({len(commander['cards'])} cards)", file=sys.stderr)
+                total_cards = sum(c['quantity'] for c in commander['cards'])
+                print(f"  ✓ {commander['name']} ({total_cards} cards in deck)", file=sys.stderr)
             else:
                 print(f"  ✗ Failed to extract data", file=sys.stderr)
         else:
@@ -268,7 +371,12 @@ def main():
     # Also print summary
     print(f"\nSummary:", file=sys.stderr)
     print(f"  Total commanders: {len(commanders)}", file=sys.stderr)
-    print(f"  Total cards tracked: {sum(len(c['cards']) for c in commanders)}", file=sys.stderr)
+    total_unique_cards = sum(len(c['cards']) for c in commanders)
+    total_card_slots = sum(sum(card['quantity'] for card in c['cards']) for c in commanders)
+    avg_deck_size = total_card_slots / len(commanders) if commanders else 0
+    print(f"  Total unique card entries: {total_unique_cards}", file=sys.stderr)
+    print(f"  Total card slots: {total_card_slots}", file=sys.stderr)
+    print(f"  Average deck size: {avg_deck_size:.1f} cards (excluding commander)", file=sys.stderr)
     if commanders:
         print(f"  Most popular: {commanders[0]['name']} ({commanders[0]['numDecks']:,} decks)", file=sys.stderr)
 

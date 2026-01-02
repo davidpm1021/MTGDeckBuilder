@@ -1,13 +1,26 @@
 /** MTG Color Identity - always use WUBRG order */
 export type ColorIdentity = 'W' | 'U' | 'B' | 'R' | 'G';
 
+/** Card with quantity for deck lists */
+export interface DeckCard {
+  readonly name: string;
+  readonly quantity: number;
+}
+
+/** Card match info showing owned vs required quantities */
+export interface CardMatchInfo {
+  readonly name: string;
+  readonly required: number;
+  readonly owned: number;
+}
+
 /** Commander data from EDHREC */
 export interface Commander {
   readonly name: string;
   readonly slug: string;
   readonly colorIdentity: readonly ColorIdentity[];
   readonly numDecks: number;
-  readonly cards: readonly string[];
+  readonly cards: readonly DeckCard[];
 }
 
 /** Result of matching a collection against a commander's decklist */
@@ -16,8 +29,8 @@ export interface MatchResult {
   readonly owned: number;
   readonly total: number;
   readonly missing: number;
-  readonly ownedCards: readonly string[];
-  readonly missingCards: readonly string[];
+  readonly ownedCards: readonly CardMatchInfo[];
+  readonly missingCards: readonly CardMatchInfo[];
 }
 
 /** Commander with match results for display */

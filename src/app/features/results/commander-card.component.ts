@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, computed, input, signal } from '@angular/core';
-import { MatchedCommander, ColorIdentity } from '@app/core/models/types';
+import { MatchedCommander, ColorIdentity, CardMatchInfo } from '@app/core/models/types';
 import { ProgressBarComponent } from './progress-bar.component';
 
 @Component({
@@ -64,9 +64,9 @@ import { ProgressBarComponent } from './progress-bar.component';
               Owned Cards ({{ matchedCommander().match.ownedCards.length }})
             </h4>
             <div class="flex flex-wrap gap-1">
-              @for (card of displayedOwnedCards(); track card) {
+              @for (card of displayedOwnedCards(); track card.name) {
                 <span class="text-xs px-2 py-1 bg-[var(--color-bg-secondary)] rounded text-[var(--color-text-secondary)]">
-                  {{ card }}
+                  {{ formatOwnedCard(card) }}
                 </span>
               }
               @if (matchedCommander().match.ownedCards.length > 10) {
@@ -83,9 +83,9 @@ import { ProgressBarComponent } from './progress-bar.component';
               Missing Cards ({{ matchedCommander().match.missingCards.length }})
             </h4>
             <div class="flex flex-wrap gap-1">
-              @for (card of displayedMissingCards(); track card) {
+              @for (card of displayedMissingCards(); track card.name) {
                 <span class="text-xs px-2 py-1 bg-[var(--color-bg-secondary)] rounded text-[var(--color-text-secondary)]">
-                  {{ card }}
+                  {{ formatMissingCard(card) }}
                 </span>
               }
               @if (matchedCommander().match.missingCards.length > 10) {
@@ -119,6 +119,27 @@ export class CommanderCardComponent {
 
   toggleExpanded(): void {
     this.expanded.update(v => !v);
+  }
+
+  formatOwnedCard(card: CardMatchInfo): string {
+    // Show quantity only if more than 1 required
+    if (card.required > 1) {
+      return `${card.name} (${card.owned}/${card.required})`;
+    }
+    return card.name;
+  }
+
+  formatMissingCard(card: CardMatchInfo): string {
+    const missingQty = card.required - card.owned;
+    // Show quantity only if more than 1 missing
+    if (missingQty > 1) {
+      return `${card.name} (need ${missingQty})`;
+    }
+    if (card.required > 1 && card.owned > 0) {
+      // Partial: have some but not all
+      return `${card.name} (${card.owned}/${card.required})`;
+    }
+    return card.name;
   }
 
   getColorBackground(color: ColorIdentity): string {
