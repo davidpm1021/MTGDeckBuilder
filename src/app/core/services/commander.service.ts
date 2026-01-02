@@ -10,7 +10,7 @@ import { Commander, CommanderData } from '../models/types';
 @Injectable({ providedIn: 'root' })
 export class CommanderService {
   private readonly http = inject(HttpClient);
-  private readonly commandersUrl = '/assets/data/commanders.json';
+  private readonly commandersUrl = 'assets/data/commanders.json';
 
   private readonly _commanders = signal<Commander[]>([]);
   private readonly _dataUpdatedAt = signal<string>('');
