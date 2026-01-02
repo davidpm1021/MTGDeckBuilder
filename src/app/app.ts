@@ -23,11 +23,9 @@ import { Filters, MatchedCommander } from '@app/core/models/types';
           <h1 class="text-2xl font-bold text-[var(--color-accent-gold)]">
             MTG Deck Builder
           </h1>
-          @if (dataUpdatedAt()) {
-            <p class="text-xs text-[var(--color-text-secondary)] mt-1">
-              Data updated: {{ dataUpdatedAt() }}
-            </p>
-          }
+          <p class="text-xs text-[var(--color-text-secondary)] mt-1">
+            Discover which Commander decks you can build with your collection
+          </p>
         </div>
       </header>
 
@@ -71,6 +69,27 @@ import { Filters, MatchedCommander } from '@app/core/models/types';
           </div>
         }
       </main>
+
+      <!-- Footer -->
+      <footer class="bg-[var(--color-bg-secondary)] border-t border-[var(--color-bg-card)] py-4 px-6 mt-8">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-xs text-[var(--color-text-secondary)]">
+          <p>
+            MTG Deck Builder - Find commanders you can build with your collection
+          </p>
+          <div class="flex items-center gap-4">
+            @if (dataUpdatedAt()) {
+              <span>Data updated: {{ dataUpdatedAt() }}</span>
+            }
+            <a
+              href="https://edhrec.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-[var(--color-accent-gold)] hover:underline">
+              Powered by EDHREC
+            </a>
+          </div>
+        </div>
+      </footer>
     </div>
   `
 })
@@ -112,7 +131,7 @@ export class App implements OnInit {
     }
   }
 
-  onCollectionParsed(_collection: Map<string, number>): void {
+  onCollectionParsed(): void {
     // Collection is already updated in the service
     // This callback can be used for additional side effects if needed
   }

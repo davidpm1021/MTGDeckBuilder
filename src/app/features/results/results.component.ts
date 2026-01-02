@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, computed, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { MatchedCommander } from '@app/core/models/types';
 import { CommanderCardComponent } from './commander-card.component';
 

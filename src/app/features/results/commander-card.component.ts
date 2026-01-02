@@ -7,9 +7,15 @@ import { ProgressBarComponent } from './progress-bar.component';
   imports: [ProgressBarComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div
-      class="bg-[var(--color-bg-card)] rounded-lg p-4 border border-[var(--color-bg-secondary)] hover:border-[var(--color-accent-gold)] transition-colors cursor-pointer"
-      (click)="toggleExpanded()">
+    <article
+      role="button"
+      tabindex="0"
+      [attr.aria-expanded]="expanded()"
+      [attr.aria-label]="matchedCommander().commander.name + ' - ' + matchedCommander().match.percent + '% buildable'"
+      class="bg-[var(--color-bg-card)] rounded-lg p-4 border border-[var(--color-bg-secondary)] hover:border-[var(--color-accent-gold)] transition-colors cursor-pointer focus:outline-none focus:border-[var(--color-accent-gold)]"
+      (click)="toggleExpanded()"
+      (keydown.enter)="toggleExpanded()"
+      (keydown.space)="toggleExpanded(); $event.preventDefault()">
 
       <!-- Header -->
       <div class="flex justify-between items-start mb-3">
@@ -91,7 +97,7 @@ import { ProgressBarComponent } from './progress-bar.component';
           </div>
         </div>
       }
-    </div>
+    </article>
   `
 })
 export class CommanderCardComponent {

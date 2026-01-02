@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, signal, output, computed } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, output } from '@angular/core';
 import { ColorIdentity, Filters, SortOption } from '@app/core/models/types';
 
 interface ColorButton {

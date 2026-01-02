@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { DeckMatcherService } from './deck-matcher.service';
-import { Commander, Filters, MatchedCommander } from '../models/types';
+import { Commander, Filters } from '../models/types';
 
 describe('DeckMatcherService', () => {
   let service: DeckMatcherService;
