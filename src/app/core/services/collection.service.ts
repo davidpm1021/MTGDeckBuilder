@@ -69,16 +69,42 @@ export class CollectionService {
    * Parses a single line and extracts card name and quantity.
    */
   private parseLine(line: string): { name: string; quantity: number } | null {
-    // Try CSV format first: "4,Lightning Bolt,2XM"
+    // Skip header rows commonly found in CSV exports
+    const lowerLine = line.toLowerCase();
+    if (lowerLine.startsWith('count,') || lowerLine.startsWith('quantity,') ||
+        lowerLine.startsWith('name,') || lowerLine.startsWith('card,') ||
+        lowerLine.startsWith('"count"') || lowerLine.startsWith('"name"')) {
+      return null;
+    }
+
+    // Try CSV format: handles both "4,Lightning Bolt,2XM" and "Lightning Bolt,4,2XM"
     if (line.includes(',')) {
-      const parts = line.split(',').map((p) => p.trim());
+      const parts = line.split(',').map((p) => p.trim().replace(/^"|"$/g, '')); // Remove quotes
       if (parts.length >= 2) {
-        const quantity = parseInt(parts[0], 10);
-        if (!isNaN(quantity) && quantity > 0) {
-          return { name: parts[1], quantity };
+        const firstNum = parseInt(parts[0], 10);
+        const secondNum = parseInt(parts[1], 10);
+
+        // Format: "4,Lightning Bolt,..." (quantity first)
+        if (!isNaN(firstNum) && firstNum > 0 && isNaN(secondNum)) {
+          return { name: parts[1], quantity: firstNum };
         }
-        // If first part isn't a number, treat first part as the name
-        return { name: parts[0], quantity: 1 };
+
+        // Format: "Lightning Bolt,4,..." (name first, quantity second)
+        if (isNaN(firstNum) && !isNaN(secondNum) && secondNum > 0) {
+          return { name: parts[0], quantity: secondNum };
+        }
+
+        // Format: "Lightning Bolt,set,..." (name first, no quantity) - default to 1
+        if (isNaN(firstNum) && parts[0].length > 0) {
+          // Check if any column looks like a quantity
+          for (let i = 1; i < parts.length; i++) {
+            const num = parseInt(parts[i], 10);
+            if (!isNaN(num) && num > 0 && num < 1000) {
+              return { name: parts[0], quantity: num };
+            }
+          }
+          return { name: parts[0], quantity: 1 };
+        }
       }
     }
 
